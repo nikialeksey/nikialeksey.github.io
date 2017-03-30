@@ -9,14 +9,22 @@ categories: java oop
 public class MailingServiceImpl implements MailingService {
 
     @Override
-    public sendMail() { ... }
+    public sendMail(Message message) {
+        Message signedMessage = addDefaultSign(message);
+        ...
+    }
 
     /**
      * Добавление подписи по умолчанию
      * @param message сообщение
      * @return сообщение с подписью
      */
-    private String addSign(String message) { ... }
+    private Message addDefaultSign(Message message) { ... }
 }
 ```
-Конкретно, метод `addSign` нужно вынести в отдельный сервис. Почему?
+Конкретно, метод `addDefaultSign` нужно вынести в отдельный сервис.
+Почему?
+
+Потому что сервис отправки почты должен заниматься только отправкой
+почты и ничем другим. Необходимо сформировать сообщение заранее и
+передать его в сервис отправки почты.
