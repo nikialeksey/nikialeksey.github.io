@@ -6,6 +6,9 @@ baseurl: ""
 url: "http://www.nikialeksey.com"
 twitter_username: nikialeksey
 github_username:  nikialeksey
+google_analytics: UA-96573346-1
+disqus:
+    shortname: nikialeksey-blog
 
 # Build settings
 markdown: kramdown
