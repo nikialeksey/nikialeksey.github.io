@@ -2,6 +2,7 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "jekyll", "3.4.3"
+gem "jekyll-plantuml"
 gem "minima", "2.1.0"
 
 # If you have any plugins, put them here!
