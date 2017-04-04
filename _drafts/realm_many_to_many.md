@@ -25,4 +25,24 @@ public class Email extends RealmObject {
 Этот код является примером реализации связи **Many-to-Many**. Путает
 здесь то, что в традиционных реляционных базах данных реализация похожей
 связи между сущностями будет иметь отношение **One-To-Many**:
+{% plantuml %}
+{% include skin.plantuml %}
+
+object Contact {
+    id
+    name
+}
+
+object Email {
+    contactId
+    number
+    address
+    active
+}
+
+City "1" -{ "*" Apartment
+
+{% endplantuml %}
+Только там способ связи другой: у сщности, которая является элементом
+списка (`Email`) есть ссылка на владельца этого списка.
 

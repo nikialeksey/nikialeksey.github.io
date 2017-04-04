@@ -1,0 +1,9 @@
+skinparam monochrome true
+skinparam handwritten true
+skinparam object {
+    FontSize 18
+    AttributeFontSize 16
+}
+skinparam arrow {
+    FontSize 17
+}
