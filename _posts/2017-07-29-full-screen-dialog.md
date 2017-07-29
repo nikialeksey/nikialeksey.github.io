@@ -6,7 +6,7 @@ title:  "Android Full-Screen Dialog Library"
 Существует [компонент](https://material.io/guidelines/components/dialogs.html#dialogs-full-screen-dialogs)
 в [Material Design](https://material.io/guidelines/material-design/introduction.html), 
 который предназначен для отображения диалога во весь экран вашего приложения. Выглядит это так:  
-![True full-screen dialog]({{ site.url }}/assets/imgs/components_dialogs_fullscreen.png)
+![True full-screen dialog]({{ site.url }}/assets/imgs/components-dialogs-fullscreen.png)
 
 К сожалению, в [стандартной библиотеке дизайна](https://developer.android.com/training/material/design-library.html)
 не реализован такой компонент. Поэтому предлагаю вашему вниманию 
