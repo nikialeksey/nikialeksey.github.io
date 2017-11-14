@@ -2,6 +2,7 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "jekyll", "3.4.3"
+gem "jekyll-bits", "0.14"
 gem "jekyll-seo-tag"
 gem "jekyll-plantuml"
 gem "minima", "2.1.0"

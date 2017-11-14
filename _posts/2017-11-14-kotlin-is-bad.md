@@ -1,15 +1,21 @@
 ---
 layout: post
 title:  "Kotlin - это плохо. Расширения - синтаксический сахар над Utility классами"
+image: /assets/imgs/steps-to-down.jpg
+jb_picture:
+  alt: Kotlin is the way down
+  caption: Steps going down by Chance Agrella
 ---
 
 Начинается цикл статей, которые будут посвящены языку [`Kotlin`](https://kotlinlang.org/).
+
+{% jb_picture_body %}
 
 После [анонсирования](https://youtu.be/X1RVYt2QKQE) `Kotlin`'а как официального языка для разработки под 
 [Android](https://www.android.com/) все больше и больше разработчиков 
 [стали использовать](https://realm.io/realm-report/2017-q4/)этот язык в своих проектах. 
 
-![asd]({{ site.url }}/assets/imgs/kotlin-using-statistics.jpg)
+![Kotlin using statistics]({{ site.url }}/assets/imgs/kotlin-using-statistics.jpg)
 
 Это обусловлено, в первую очередь, тем, что `Kotlin` - это что-то свежее, в отличие от
 `Java 1.7`. Например, в `Koltin` есть [`lambda`](https://kotlinlang.org/docs/reference/lambdas.html):

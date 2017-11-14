@@ -21,11 +21,6 @@ layout: default
         {% endfor %}
     </ul>
 
-    <form action="https://formspree.io/nikialeksey@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="{{ relative_url }}"/>
-        <input type="hidden" name="_subject" value="Subscribe me!" />
-        <input type="email" name="email" placeholder="Your email" maxlength="256" required="required">
-        <input type="submit" value="Subscribe">
-    </form>
+    {% include subscribe.html %}
 
 </div>

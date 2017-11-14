@@ -17,6 +17,7 @@ gems:
   - jekyll-feed
   - jekyll-plantuml
   - jekyll-seo-tag
+  - jekyll-bits
 exclude:
   - Gemfile
   - Gemfile.lock
