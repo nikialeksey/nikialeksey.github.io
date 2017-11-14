@@ -1,0 +1,25 @@
+@mixin focus($types) {
+  @each $type in $types {
+    &[type=#{$type}] {
+      @content;
+    }
+  }
+}
+
+input {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  font-weight: bold;
+  border: none;
+  border-bottom: 4px solid #424242;
+  width: 100%;
+  margin-bottom: 20px;
+
+  @include focus(submit) {
+    display: table;
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    border-bottom: none;
+    border-radius: 3px;
+  }
+}
