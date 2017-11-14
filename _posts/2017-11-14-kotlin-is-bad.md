@@ -9,7 +9,7 @@ jb_picture:
 
 Начинается цикл статей, которые будут посвящены языку [`Kotlin`](https://kotlinlang.org/).
 
-
+{% jb_picture_body %}
 
 После [анонсирования](https://youtu.be/X1RVYt2QKQE) `Kotlin`'а как официального языка для разработки под 
 [Android](https://www.android.com/) все больше и больше разработчиков 
