@@ -31,7 +31,8 @@ println(sum(1, 2)) // 3
 ### Расширения
 Расширение - это функция, которую можно вписать в любой класс. Например, у класса `java.util.List` явно не хватает 
 метода `first`, который возвращал бы первый элемент списка. Как эта проблема решена в `Java`? Там есть 
-[`Guava`](https://github.com/google/guava/), в которой полно статических методов, и [один из них](https://github.com/google/guava/blob/master/guava/src/com/google/common/collect/Iterables.java#L808-L810)
+[`Guava`](https://github.com/google/guava/), в которой полно статических методов, и 
+[один из них](https://github.com/google/guava/blob/master/guava/src/com/google/common/collect/Iterables.java#L808-L810)
 решает нашу задачу:
 ```java
 final List<String> words = ...
@@ -94,5 +95,7 @@ class HtmlPost {
 
 ---
 
-Этот пример был показывает, что функции расширения в `Kotlin` имеют те же проблемы, что и статические методы в 
+Этот пример показывает, что функции расширения в `Kotlin` имеют те же проблемы, что и статические методы в 
 `Utility` классах. То есть, другими словами, используя расширения придется больше времени тратить на поддержку кода.
+В следующей статье рассмотрим, куда приведет использование 
+[делегирования](https://kotlinlang.org/docs/reference/delegation.html).
