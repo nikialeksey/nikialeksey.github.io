@@ -2,14 +2,11 @@
 layout: post
 title:  "Kotlin - это плохо. Расширения - синтаксический сахар над Utility классами"
 image: /assets/imgs/steps-to-down.jpg
-jb_picture:
-  alt: Kotlin is the way down
-  caption: Steps going down by Chance Agrella
 ---
 
 Начинается цикл статей, которые будут посвящены языку [`Kotlin`](https://kotlinlang.org/).
 
-{% jb_picture_body %}
+![Steps going down by Chance Agrella]({{ site.url }}/assets/imgs/steps-to-down.jpg)
 
 После [анонсирования](https://youtu.be/X1RVYt2QKQE) `Kotlin`'а как официального языка для разработки под 
 [Android](https://www.android.com/) все больше и больше разработчиков 
