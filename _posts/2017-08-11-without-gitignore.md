@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Жизнь без .gitignore"
+lang: ru_RU
 ---
 
 В [статье](https://hackernoon.com/exclude-files-from-git-without-committing-changes-to-gitignore-986fa712e78d)

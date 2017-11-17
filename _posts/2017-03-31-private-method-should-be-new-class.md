@@ -2,6 +2,7 @@
 layout: post
 title:  "Приватный метод - повод для нового класса"
 categories: java oop
+lang: ru_RU
 ---
 
 Следующий код требует рефакторинга:

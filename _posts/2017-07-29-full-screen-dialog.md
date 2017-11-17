@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Android Full-Screen Dialog Library"
+lang: ru_RU
 ---
 
 Существует [компонент](https://material.io/guidelines/components/dialogs.html#dialogs-full-screen-dialogs)

@@ -2,6 +2,7 @@
 layout: post
 title:  "Kotlin - это плохо. Расширения - синтаксический сахар над Utility классами"
 image: /assets/imgs/steps-to-down.jpg
+lang: ru_RU
 ---
 
 Начинается цикл статей, которые будут посвящены языку [`Kotlin`](https://kotlinlang.org/).

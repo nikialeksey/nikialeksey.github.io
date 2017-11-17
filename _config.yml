@@ -15,7 +15,6 @@ markdown: kramdown
 theme: minima
 gems:
   - jekyll-feed
-  - jekyll-plantuml
   - jekyll-seo-tag
 exclude:
   - Gemfile
