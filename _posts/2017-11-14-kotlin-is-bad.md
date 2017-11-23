@@ -5,7 +5,10 @@ image: /assets/imgs/steps-to-down.jpg
 lang: ru_RU
 ---
 
-Начинается цикл статей, которые будут посвящены языку [`Kotlin`](https://kotlinlang.org/).
+Начинается цикл статей, которые будут посвящены языку [`Kotlin`](https://kotlinlang.org/):
+
+ - Kotlin - это плохо. Расширения - синтаксический сахар над Utility классами
+ - [Kotlin - это плохо. Делегаты](/2017/11/23/kotlin-delegates.html)
 
 ![Steps going down by Chance Agrella]({{ site.url }}/assets/imgs/steps-to-down.jpg)
 
