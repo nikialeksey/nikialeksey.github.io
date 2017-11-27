@@ -7,8 +7,8 @@ lang: ru_RU
 
 Продолжаем цикл статей про [`Kotlin`](https://kotlinlang.org/):
 
- - [Kotlin - это плохо. Расширения - синтаксический сахар над Utility классами]({{ site.url }}//2017/11/14/kotlin-is-bad.html)
- - Kotlin - это плохо. Делегаты
+ - [Расширения - синтаксический сахар над Utility классами]({{ site.url }}/2017/11/14/kotlin-is-bad.html)
+ - Делегаты
 
 В этой статье рассмотрим паттерн [делегат](https://en.wikipedia.org/wiki/Delegation_pattern)
 и языковую возможность реализации делегата в Koltin.
