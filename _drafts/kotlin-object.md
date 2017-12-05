@@ -10,8 +10,16 @@ lang: ru_RU
  - [Делегаты]({{ site.url }}/2017/11/23/kotlin-delegates.html)
  - object keyword
 
-Вы часто используете [синглтоны](https://en.wikipedia.org/wiki/Singleton_pattern)? Если так, то вы еще студент... 
-или вы пишете на современном JVM языке. Потому что:
+Вы часто используете [синглтоны](https://en.wikipedia.org/wiki/Singleton_pattern)? Если так, то вы еще не читали
+[вопрос про синглтоны](https://stackoverflow.com/questions/137975/what-is-so-bad-about-singletons)... 
+или вы пишете на современном JVM языке. Потому что [`документация к Kotlin`](https://kotlinlang.org/docs/reference/object-declarations.html) 
+говорит:
+![Singleton is a very useful pattern]({{ site.url }}/assets/imgs/singletone-very-useful.jpg)
+
+Например, [Роберт Мартин](https://en.wikipedia.org/wiki/Robert_C._Martin) 
+[подробно объясняет](https://8thlight.com/blog/uncle-bob/2015/06/30/the-little-singleton.html), почему не надо 
+использовать этот паттерн. Но разработчики из [JetBrains](https://www.jetbrains.com/) думают иначе, и поэтому синглтоны
+в `Kotlin` теперь создавать очень просто:
 ```java
 object A {
     fun hello() {
@@ -42,3 +50,8 @@ public final class A {
    }
 }
 ```
+[Не надо использовать синглтоны в коде](http://copist.ru/books/97things-dev/73). Я не первый, кто это говорит. Однако,
+в свежем JVM языке синглтон можно сделать используя, всего-навсего, ключевое слово `object`.
+---
+Вы все еще думаете, что язык, на котором можно очень просто написать неподдерживаемый код, стоит использовать 
+в своем проекте? Подумайте еще раз.
