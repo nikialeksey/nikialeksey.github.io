@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Kotlin - это плохо. Object keyword"
+image: /assets/imgs/security-light.jpg
 lang: ru_RU
 ---
 
@@ -8,7 +9,9 @@ lang: ru_RU
 
  - [Расширения - синтаксический сахар над Utility классами]({{ site.url }}/2017/11/14/kotlin-is-bad.html)
  - [Делегаты]({{ site.url }}/2017/11/23/kotlin-delegates.html)
- - object keyword
+ - `object` keyword
+ 
+![Security light by Chance Agrella]({{ site.url }}/assets/imgs/security-light.jpg)
 
 Вы часто используете [синглтоны](https://en.wikipedia.org/wiki/Singleton_pattern)? Если так, то вы еще не читали
 [вопрос про синглтоны](https://stackoverflow.com/questions/137975/what-is-so-bad-about-singletons)... 
@@ -52,6 +55,7 @@ public final class A {
 ```
 [Не надо использовать синглтоны в коде](http://copist.ru/books/97things-dev/73). Я не первый, кто это говорит. Однако,
 в свежем JVM языке синглтон можно сделать используя, всего-навсего, ключевое слово `object`.
+
 ---
 Вы все еще думаете, что язык, на котором можно очень просто написать неподдерживаемый код, стоит использовать 
 в своем проекте? Подумайте еще раз.

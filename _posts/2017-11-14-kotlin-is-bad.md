@@ -8,7 +8,8 @@ lang: ru_RU
 Начинается цикл статей, которые будут посвящены языку [`Kotlin`](https://kotlinlang.org/):
 
  - Расширения - синтаксический сахар над Utility классами
- - [Делегаты](/2017/11/23/kotlin-delegates.html)
+ - [Делегаты]({{ site.url }}/2017/11/23/kotlin-delegates.html)
+ - [`object` keyword]({{ site.url }}/2017/12/06/kotlin-object.html)
 
 ![Steps going down by Chance Agrella]({{ site.url }}/assets/imgs/steps-to-down.jpg)
 
