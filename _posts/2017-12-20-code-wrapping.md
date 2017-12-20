@@ -90,7 +90,7 @@ class WrappedText {
 
 ### Реальный пример
 Ок, пример выше надуманный. Вот [реальный](https://github.com/nikialeksey/FullScreenDialog/blob/master/lib/src/androidTest/java/com/nikialeksey/fullscreendialog/DissmissOnCloseDialogTest.java#L40-L45) 
-код:
+код (мой проект для реализации `FullScreen` диалога для `AndroidSDK`):
 ```java
 public static class TestActivity extends FsDialogActivity {
     @Override
