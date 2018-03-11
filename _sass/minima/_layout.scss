@@ -203,13 +203,13 @@
 
 .post-tags {
   font-size: $small-font-size;
-  color: $grey-color-light;
+  color: $background-color;
   > span {
     background: $brand-color;
     padding: 2px 5px 2px 5px;
     &:before {
       content: "#";
-      color: #fff;
+      color: $grey-color-light;
       margin-right: 1px;
     }
   }
