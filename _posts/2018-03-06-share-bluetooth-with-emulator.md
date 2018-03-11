@@ -3,7 +3,11 @@ layout: post
 title: "Подключение Bluetooth-устройств к Android эмулятору"
 image: /assets/imgs/tunnel.jpg
 description: "Разбираемся, как сэкономить время при разработке Android приложения с Bluetooth переферией"
-tag: "Alexey Nikitin"
+tags: 
+  - android
+  - bluetooth
+  - emulator
+  - debugging
 lang: ru_RU
 ---
 
