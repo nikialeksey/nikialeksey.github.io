@@ -13,6 +13,8 @@ lang: ru_RU
 
 ![Steps going down by Chance Agrella]({{ site.url }}/assets/imgs/steps-to-down.jpg)
 
+<!--more-->
+
 После [анонсирования](https://youtu.be/X1RVYt2QKQE) `Kotlin`'а как официального языка для разработки под 
 [Android](https://www.android.com/) все больше и больше разработчиков 
 [стали использовать](https://realm.io/realm-report/2017-q4/)этот язык в своих проектах. 

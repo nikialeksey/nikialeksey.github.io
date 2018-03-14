@@ -10,9 +10,14 @@ $base-line-height: 1.5 !default;
 
 $spacing-unit:     30px !default;
 
+// Colors from http://color.romanuke.com/tsvetovaya-palitra-3642/
 $text-color:       #111 !default;
+$brand-dark:       #06397d !default;
+$brand-color:      #82add6 !default;
+$brand-light:      #e4e9f4 !default;
+$accent-light:     #facb66 !default;
+$accent-dark:      #911f1e !default;
 $background-color: #fdfdfd !default;
-$brand-color:      #2a7ae2 !default;
 
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;

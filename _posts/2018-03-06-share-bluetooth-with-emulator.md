@@ -23,6 +23,8 @@ lang: ru_RU
 [VMware Workstation Player](https://www.vmware.com/products/workstation-player.html)
 
 ![Tunnel by music4life]({{ site.url }}/assets/imgs/tunnel.jpg)
+
+<!--more-->
  
 Вы спросите, а почему не бесплатный [VirtualBox](https://www.virtualbox.org/)? Все просто: [VirtualBox](https://www.virtualbox.org/)
 не умеет на момент написания этой статьи шарить `Bluetooth` устройства между гостевой машиной и хостом. С использованием

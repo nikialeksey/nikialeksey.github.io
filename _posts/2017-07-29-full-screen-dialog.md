@@ -13,6 +13,8 @@ lang: ru_RU
 не реализован такой компонент. Поэтому предлагаю вашему вниманию 
 [Full-Screen Dialog Library](https://github.com/nikialeksey/FullScreenDialog).
 
+<!--more-->
+
 Давайте посмотрим, как она работает: 
 
 ![Full-Screen Dialog]({{ site.url }}/assets/gifs/full-screen-dialog.gif)

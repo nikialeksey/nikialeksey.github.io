@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<div class="home">
+
+    <ul class="post-list">
+        {% for post in paginator.posts %}
+        <li>
+            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+            <span class="post-meta">{{ post.date | date: date_format }}</span>
+
+            <h2>
+                <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h2>
+            {% if post.tags %}
+            <p class="post-tags">
+                {% for tag in post.tags %}
+                <span>{{ tag }}</span>
+                {% endfor %}
+            </p>
+            {% endif %}
+            {{ post.excerpt }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="pagination-prev">&laquo; Prev</a>
+        {% else %}
+        <span class="pagination-prev">&laquo; Prev</span>
+        {% endif %}
+
+        {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+        <span class="pagination-page">{{ page }}</span>
+        {% elsif page == 1 %}
+        <a href="{{ site.url }}" class="pagination-page">{{ page }}</a>
+        {% else %}
+        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="pagination-page">{{ page }}</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="pagination-next">Next &raquo;</a>
+        {% else %}
+        <span class="pagination-next">Next &raquo;</span>
+        {% endif %}
+    </div>
+    {% endif %}
+
+</div>

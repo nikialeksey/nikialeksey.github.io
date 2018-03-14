@@ -13,6 +13,8 @@ lang: ru_RU
 [`.git/info/exclude`](https://help.github.com/articles/ignoring-files/#explicit-repository-excludes). Но если вам 
 не хочется что-то править в `.git` и вы используете IDE от JetBrains, то добро пожаловать.
 
+<!--more-->
+
 Основная идея в том, что вы сохраняете в настройках проекта инфорацию об игнорируемых для 
 [VSC](https://en.wikipedia.org/wiki/Version_control) файлах. Вобще есть 
 [мануал](https://www.jetbrains.com/help/idea/configuring-ignored-files.html) про игнорирование файлов,

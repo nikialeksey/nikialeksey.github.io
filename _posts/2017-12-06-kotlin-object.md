@@ -13,6 +13,8 @@ lang: ru_RU
  
 ![Security light by Chance Agrella]({{ site.url }}/assets/imgs/security-light.jpg)
 
+<!--more-->
+
 Вы часто используете [синглтоны](https://en.wikipedia.org/wiki/Singleton_pattern)? Если так, то вы еще не читали
 [вопрос про синглтоны](https://stackoverflow.com/questions/137975/what-is-so-bad-about-singletons)... 
 или вы пишете на современном JVM языке. Потому что [`документация к Kotlin`](https://kotlinlang.org/docs/reference/object-declarations.html) 

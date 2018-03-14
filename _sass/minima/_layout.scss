@@ -173,6 +173,18 @@
 
 
 /**
+ * Pagination
+ */
+.pagination-page {
+  padding: 2px 5px 2px 5px;
+}
+span.pagination-page {
+  background-color: $brand-light;
+}
+
+
+
+/**
  * Page content
  */
 .page-content {
@@ -205,7 +217,7 @@
   font-size: $small-font-size;
   color: $background-color;
   > span {
-    background: $brand-color;
+    background: $accent-dark;
     padding: 2px 5px 2px 5px;
     &:before {
       content: "#";

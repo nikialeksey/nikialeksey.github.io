@@ -10,11 +10,13 @@ lang: ru_RU
  - [Расширения - синтаксический сахар над Utility классами]({{ site.url }}/2017/11/14/kotlin-is-bad.html)
  - Делегаты
  - [`object` keyword]({{ site.url }}/2017/12/06/kotlin-object.html)
-
+ 
 В этой статье рассмотрим паттерн [делегат](https://en.wikipedia.org/wiki/Delegation_pattern)
 и языковую возможность реализации делегата в Koltin.
 
 ![Hard Work by Joachim Bär]({{ site.url}}/assets/imgs/hard-work.jpg)
+
+<!--more-->
 
 Паттерн делегат очень простой: один объект передает выполнение своего метода другому объекту. Например, в `Java`
 это выглядит так:
