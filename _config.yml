@@ -2,6 +2,7 @@ title: Alexey Nikitin
 email: nikialeksey@gmail.com
 description: >
   Blog about Java programming, clean code and Android development
+lang: ru_RU
 baseurl: ""
 url: "http://www.nikialeksey.com"
 excerpt_separator: <!--more-->
@@ -10,6 +11,9 @@ paginate_path: "/page-:num/"
 
 twitter_username: nikialeksey
 github_username:  nikialeksey
+linkedin_username: nikialeksey
+instagram_username: nikialeksey
+
 twitter:
   username: nikialeksey
 social:

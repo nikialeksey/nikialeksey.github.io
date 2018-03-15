@@ -195,20 +195,16 @@ pre {
 /**
  * Icons
  */
-.icon > svg {
+.svg-icon {
+  width: 16px;
+  height: 16px;
   display: inline-block;
-  vertical-align: middle;
-
-  path {
-    fill: $grey-color;
-  }
+  fill: #{$grey-color};
+  padding-right: 5px;
+  vertical-align: text-top;
 }
 
 .social-media-list {
-  .icon {
-    padding-right: 5px;
-  }
-
   li + li {
     padding-top: 5px;
   }

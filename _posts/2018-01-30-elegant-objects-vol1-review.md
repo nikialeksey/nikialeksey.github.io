@@ -3,6 +3,9 @@ layout: post
 title:  "Ревью Elegant Objects vol.1"
 image: /assets/imgs/seeking-the-answer.jpg
 lang: ru_RU
+tags:
+  - elegantobjects
+  - bookreview
 ---
 
 После почти 2-ух месяцев чтения книги [Elegant Objects vol.1](http://www.yegor256.com/elegant-objects.html) я готов рассказать 
