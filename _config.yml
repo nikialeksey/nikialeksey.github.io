@@ -4,7 +4,7 @@ description: >
   Blog about Java programming, clean code and Android development
 lang: ru_RU
 baseurl: ""
-url: "http://www.nikialeksey.com"
+url: "https://www.nikialeksey.com"
 excerpt_separator: <!--more-->
 paginate: 4
 paginate_path: "/page-:num/"
