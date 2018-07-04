@@ -1,26 +1,26 @@
 ---
 layout: post
-title: "Моки это плохо. Очень."
+title: "Mocks are bad. Don't use it"
+lang: en
 image: 
-description: "Почему популярные фреймворки для создания моков портят вам код, и как обходится без моков в тестировании"
+description: "Why most popular testing frameworks spoil your tests and how we can live without mocks."
 tags: 
   - testing
   - mocks
   - fakes
 ---
 
-Часто используете [Mockito](https://site.mockito.org/) или подобные фреймворки
-для написания своих тестов? Тогда я знаю, как улучшить ваши тесты! 
+Do you use [Mockito](https://site.mockito.org/) often or some similar frameworks for writing your tests?
+So, I know how to improve your tests. 
 
 <!--more-->
 
-Для начала разберемся, что такое моки. Если просто моки - это объекты, которые
-создаются вызовом `Mockito.mock`:
+Well, first we have to know what is the mocks. Simply, mocks are objects created by `Mockito.mock`:
 ```java
 final Email email = Mockito.mock(Email.class);
 ```
-Получившийся объект реализует интерфейс Email, только пока все его методы ничего
-не делают. Такому объекту можно задавать поведение:
+The resulting object implements `Email` interface but his methods do nothing yet. We can define behavior for his 
+methods:
 ```java
 Mockito.when(
     email.html()
@@ -28,7 +28,7 @@ Mockito.when(
     "<p>Hello, Fakes!</p>"
 );
 ```
-И, затем, можно тестировать объект, который использует письмо для отображения:
+And then we can test object which using email for printing, for example:
 ```java
 assertThat(
     new EmailPage(email).html(), 
@@ -38,15 +38,11 @@ assertThat(
 );
 ```
 
-То есть, если мы используем моки, то при написании тестов нам придется думать
-о реализации тестируемого класса --- это так называемое 
-[тестирование белого ящика](https://en.wikipedia.org/wiki/White-box_testing). 
-В приведенном выше примере при тестировании
-`EmailPage` нам понадобилось знание того, что в реализации метода 
-`EmailPage#html` вызывался метод `Email#html`, и поведение этого метода мы
-определили в моке. Плохо здесь вот что: при изменении реализации 
-`EmailPage#html` с сохранением контракта (то есть так, что реализация 
-изменилась, а поведение нет) вам, скорее всего, потребуется так же изменить 
-тест, потому что он опирается на старую реализацию, потому что моки в нем были 
-описаны для старой реализации. 
+So, if we use mocks, then we have to think about implementation of testing object in writing tests - 
+so-called [white-box testing](https://en.wikipedia.org/wiki/White-box_testing). 
+In the sample above in testing of `EmailPage` we needed knowledge about implementation of the method `EmailPage#html`: 
+`Email#html` is calling in it, and we had to define this behavior for `Email` mock.
+The bad thing is: if you change implementation of `EmailPage#html`, then you have to change test, because the behavior
+of defined for old implementation. In the nutshell, white-box testing is bad, because in writing tests you 
+need to think about how to test objects, not about how they are implemented.
 
