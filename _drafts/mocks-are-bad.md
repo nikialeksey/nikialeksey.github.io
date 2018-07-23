@@ -30,7 +30,7 @@ Mockito.when(
 ```
 And then we can test object which using email for printing, for example:
 ```java
-assertThat(
+Assert.assertThat(
     new EmailPage(email).html(), 
     IsEqual.equalTo(
         "<html><body><p>Hello, Fakes!</p></body><html>"
@@ -46,15 +46,43 @@ The bad thing is: if you change implementation of `EmailPage#html`, then you hav
 of defined for old implementation. In the nutshell, white-box testing is bad, because in writing tests you 
 need to think about how to test objects, not about how they are implemented.
 
-Пример, когда поведение скрыто при взаимодействии:
+Ok, what about mocks for testing object with hidden behavior?
 ```java
 class FilterRepository {
-    public void updateName(String name) { ... }
+    private final CloudFile file;
+    
+    ...
+    
+    public void updateName(final String name) { ... }
 }
 ```
-В таком случае обычно начинают слежку за моком и в тесте проверяют, что определенный метод мока был вызван.
-Однако, лучше было бы сделать фейк для persistance, и провереть потом у фейка, реально ли было изменено имя в фильтре.
-
+In this case most common pattern for assert - `Mockito.verify` to verify that some method of `CloudFile` was called:
+```java
+@Test
+public void updateName() {
+    final CloudFile file = Mockito.mock(CloudFile.class);
+    final FilterRepository repo = new FilterRepository(file);
+    repo.updateName("Cloud");
+    Mockito.verify(file, Mockito.times(1)).write(ArgumentMatchers.any(String.class));
+}
+```
+See it? We had to add `any` because we don't really know how `FilterRepository` update `name` in some cloud 
+persistence, or that part is changing often. What's wrong? We need to know in test how `FilterRepository` work with
+him dependencies. But we must think about behavior in tests:
+```java
+@Test
+public void updateName() {
+    final CloudFile file = new FakeCloudFile();
+    final FilterRepository repo = new FilterRepository(file);
+    repo.updateName("Cloud");
+    Assert.assertThat(
+        file.content(),
+        StringContains.containsString("Cloud")
+    )
+}
+```
+Fake `FakeCloudFile` is a cheap in-memory implementation of `CloudFile`, and it allow us to test behavior and
+barely think about implementation of testing object.
 
 Пример сложного взаимодействия в одном методе, когда подготовка моков занимает бОльшую часть строк в тесте. Показать, 
 что проще (понятнее и поддерживаемее) было бы создать и подготовить несколько фейков, чем следить за 100500 настройками
