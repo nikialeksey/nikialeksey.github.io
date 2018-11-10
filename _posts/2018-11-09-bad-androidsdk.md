@@ -111,3 +111,9 @@ int mPrivateFlags3;
 [`elegantobjects`](http://www.elegantobjects.org/)?", и я почти уверен, 
 результат будет на порядок выше существующего решения, от которого 
 [кровь из глаз](https://medium.com/@drinfo/fuck-you-android-framework-ddbb02c4ae48). 
+
+---
+
+Кстати, если вам, как и мне, не нравится класс [`View.java`](https://android.googlesource.com/platform/frameworks/base/+/oreo-release/core/java/android/view/View.java),
+то можете прокомментировать [Issue](https://issuetracker.google.com/issues/114273949) про плохую архитектуру
+[`View.java`](https://android.googlesource.com/platform/frameworks/base/+/oreo-release/core/java/android/view/View.java).
