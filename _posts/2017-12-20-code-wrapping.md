@@ -13,7 +13,7 @@ lang: ru_RU
 
 <!--more-->
 
-### Читабельные/нечитабельные переносы
+## Читабельные/нечитабельные переносы
 Не понятно, что такое "читабельный перенос"/"нечитабельный перенос". Поэтому приведу пример:
 ```java
 class WrappedText {
@@ -76,7 +76,7 @@ class WrappedText {
 Внимание, вопрос: где быстрее сосчитать количество параметров на картинке ниже:
 ![Внимание, вопрос: где быстрее сосчитать количество параметров?]({{ site.url }}/assets/imgs/code-wrapping-easy-reading.jpg)
 
-### Git diff
+## Git diff
 Посмотрите, как будет выглядеть `git diff` между тремя и четырьмя параметрами, если вы форматируете код как текст в 
 книжке:
 ![Bad diff]({{ site.url }}/assets/imgs/code-wrapping-diff-bad.jpg)
@@ -90,7 +90,7 @@ class WrappedText {
 форматированием.
 
 
-### Реальный пример
+## Реальный пример
 Ок, пример выше надуманный. Вот [реальный](https://github.com/nikialeksey/FullScreenDialog/blob/master/lib/src/androidTest/java/com/nikialeksey/fullscreendialog/DissmissOnCloseDialogTest.java#L40-L45) 
 код (мой проект для реализации `FullScreen` диалога для `AndroidSDK`):
 ```java
@@ -126,7 +126,7 @@ public static class TestActivity extends FsDialogActivity {
 }
 ```
 
-### Автоматизируйте переносы
+## Автоматизируйте переносы
 Ок, вы согласились, но у вас совсем нет времени делать такие переносы вручную. Например, чтобы настроить автоматическое
 форматирование в `Intellij Idea` при переносе параметров в сигнатуре метода нужно перейти в
 `Settings -> Editor -> Code Style -> Java -> Wrapping And Braces`:
