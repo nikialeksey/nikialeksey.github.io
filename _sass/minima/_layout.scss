@@ -134,7 +134,7 @@ span.pagination-page {
   list-style: none;
 
   > li {
-    margin-bottom: $spacing-unit;
+    margin-bottom: $spacing-unit * 2;
   }
 }
 
@@ -146,6 +146,7 @@ span.pagination-page {
 .post-tags {
   font-size: $small-font-size;
   color: $background-color;
+  margin-bottom: $spacing-unit;
   > span {
     background: $accent-dark;
     padding: 2px 5px 2px 5px;
@@ -159,7 +160,14 @@ span.pagination-page {
 
 .post-link {
   display: block;
-  @include relative-font-size(1.5);
+  @include relative-font-size(2.5);
+  font-weight: 900;
+  line-height: 1;
+
+  &:hover {
+    color: $text-color;
+    text-decoration: none;
+  }
 }
 
 
@@ -168,17 +176,24 @@ span.pagination-page {
  * Posts
  */
 .post-header {
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit / 2;
 }
 
 .post-title {
-  @include relative-font-size(2.625);
-  letter-spacing: -1px;
+  color: $brand-color;
+  @include relative-font-size(2.5);
+  font-weight: 900;
   line-height: 1;
 
   @include media-query($on-laptop) {
     @include relative-font-size(2.25);
   }
+}
+
+.post-preview, .post-content {
+  font-family: $post-font-family;
+  font-size: $post-font-size;
+  color: $post-font-color;
 }
 
 .post-content {
@@ -192,19 +207,8 @@ span.pagination-page {
     }
   }
 
-  h3 {
-    @include relative-font-size(1.625);
-
-    @include media-query($on-laptop) {
-      @include relative-font-size(1.375);
-    }
+  p ~ h2 {
+    padding-top: $spacing-unit;
   }
 
-  h4 {
-    @include relative-font-size(1.25);
-
-    @include media-query($on-laptop) {
-      @include relative-font-size(1.125);
-    }
-  }
 }

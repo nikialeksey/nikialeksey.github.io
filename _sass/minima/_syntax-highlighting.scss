@@ -1,6 +1,10 @@
 /**
  * Syntax highlighting styles
  */
+code {
+  font-family: $code-font-family;
+}
+
 .highlight {
   background: #fff;
   @extend %vertical-rhythm;

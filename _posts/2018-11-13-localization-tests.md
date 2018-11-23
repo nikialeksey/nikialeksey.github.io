@@ -36,9 +36,7 @@ tags:
 библиотеку-обертку [`arspell`](https://github.com/nikialeksey/arspell). Воспользоваться ей можно так:
 ```gradle
 dependencies {
-    testImplementation('com.nikialeksey:arspell:0.0.3@aar') {
-        transitive true
-    }
+    testImplementation 'com.nikialeksey:arspell:1.0.0'
 }
 ```
 

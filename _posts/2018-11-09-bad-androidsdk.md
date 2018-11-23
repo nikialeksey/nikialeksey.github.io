@@ -74,7 +74,7 @@ int mPrivateFlags3;
 Мало того, что они доступны, нас заставляют их использовать. Например, если нам 
 нужно, чтобы ОС сама смогла заполнить день истечения срока действия платежной 
 карты, то для этого `View.java` специально приберегла статическую переменную:
-[AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_DAY](https://android.googlesource.com/platform/frameworks/base/+/oreo-release/core/java/android/view/View.java#1119)
+[`AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_DAY`](https://android.googlesource.com/platform/frameworks/base/+/oreo-release/core/java/android/view/View.java#1119)
 
 Со стороны все это выглядит не как объект, а как [пространство имен](https://en.wikipedia.org/wiki/Namespace).
 [Процедурное программирование](https://en.wikipedia.org/wiki/Procedural_programming) - вот что нам дал [Google](https://www.google.com).
