@@ -11,8 +11,8 @@ tags:
 ---
 
 Вы часто используете [Mockito](https://site.mockito.org/) или другие похожие фреймворки для написания 
-[unit-тестов](https://en.wikipedia.org/wiki/Unit_testing)? Если это так, то я знаю, как сделать ваши тесты качественнее
-- никогда не используйте моки! 
+[unit-тестов](https://en.wikipedia.org/wiki/Unit_testing)? Если это так, то я знаю, как сделать ваши тесты качественнее - 
+никогда не используйте моки! 
 
 ![Ship by Greg Montani]({{ site.url }}/assets/imgs/ship.jpg)
 
