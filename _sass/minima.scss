@@ -2,56 +2,15 @@
 
 // Define defaults for each variable.
 
-// Colors from http://color.romanuke.com/tsvetovaya-palitra-1599/
-$text-color:       #111 !default;
-$brand-dark:       #0b2b81 !default;
-$brand-color:      #376ac5 !default;
-$brand-light:      #f59d16 !default;
-$accent-light:     #a6380a !default;
-$accent-dark:      #6a371a !default;
-$background-color: #fdfdfd !default;
-
-$grey-color:       #828282 !default;
-$grey-color-light: lighten($grey-color, 40%) !default;
-$grey-color-dark:  darken($grey-color, 25%) !default;
-
-$base-font-family: 'Exo 2', sans-serif, !default;
-$base-font-size:   16px !default;
-$base-font-weight: 400 !default;
-$small-font-size:  $base-font-size * 0.875 !default;
-$base-line-height: 1.5 !default;
+@import "minima/colors";
+@import "minima/sizes";
 
 $post-font-family: 'Roboto Slab', serif;
 $post-font-size: 20px;
 $post-font-color: $grey-color-dark;
 $code-font-family: 'Anonymous Pro', monospace;
 
-$spacing-unit:     30px !default;
-
 $table-text-align: left !default;
-
-// Width of the content area
-$content-width:    800px !default;
-
-$on-palm:          600px !default;
-$on-laptop:        800px !default;
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//   .wrapper {
-//     padding-right: $spacing-unit / 2;
-//     padding-left: $spacing-unit / 2;
-//   }
-// }
-@mixin media-query($device) {
-  @media screen and (max-width: $device) {
-    @content;
-  }
-}
-
-@mixin relative-font-size($ratio) {
-  font-size: $base-font-size * $ratio;
-}
 
 // Import partials.
 @import

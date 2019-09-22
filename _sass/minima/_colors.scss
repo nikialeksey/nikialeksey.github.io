@@ -1,0 +1,12 @@
+// Colors from http://color.romanuke.com/tsvetovaya-palitra-1599/
+$text-color:       #111 !default;
+$brand-dark:       #0b2b81 !default;
+$brand-color:      #376ac5 !default;
+$brand-light:      #f59d16 !default;
+$accent-light:     #a6380a !default;
+$accent-dark:      #6a371a !default;
+$background-color: #fdfdfd !default;
+
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;

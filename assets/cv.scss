@@ -1,0 +1,86 @@
+---
+# styles for cv
+---
+
+@import "minima/colors";
+@import "minima/sizes";
+
+.cv-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 1em;
+}
+
+.cv-content > .right-column {
+  grid-column: 2;
+  grid-row-start: 1;
+}
+
+.cv-content > .left-column {
+  grid-column: 1;
+}
+
+.cv-content .block {
+  margin-bottom: 2em;
+}
+
+.cv-content .block > .title {
+  font-weight: bolder;
+  text-decoration: none;
+  border-bottom: 0.2em solid $brand-color;
+  font-size: 18pt;
+  margin-bottom: 0.2em;
+  &:before {
+    display: inline-block;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-right: 0.5em;
+    content: "/";
+    background-color: $brand-color;
+    color: $background-color;
+  }
+}
+
+.cv-content .block .enum-prefix {
+  font-weight: bolder;
+  text-transform: uppercase;
+  &:before {
+    display: inline-block;
+    margin-right: 0.1em;
+    content: "+";
+  }
+}
+
+.cv-content .block .enum-title {
+  font-weight: bolder;
+  &:before {
+    display: inline-block;
+    margin-right: 0.1em;
+    content: "+";
+  }
+}
+
+.cv-content .block .bio-title {
+  font-weight: bolder;
+  display: block;
+  span {
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  span:nth-child(2) {
+    position: relative;
+    float: right;
+    color: $grey-color;
+  }
+  &:nth-child(n + 2) {
+    margin-top: 0.5em;
+  }
+}
+
+.cv-content .block .work-activity {
+  &:before {
+    content: "■";
+    margin-right: 0.2em;
+    margin-left: 0.2em;
+  }
+}
