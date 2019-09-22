@@ -5,22 +5,19 @@
 @import "minima/colors";
 @import "minima/sizes";
 
+.cv-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 1em;
+}
 
-@include media-query($on-laptop) {
-  .cv-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-column-gap: 1em;
-  }
+.cv-content > .right-column {
+  grid-column: 2;
+  grid-row-start: 1;
+}
 
-  .cv-content > .right-column {
-    grid-column: 2;
-    grid-row-start: 1;
-  }
-
-  .cv-content > .left-column {
-    grid-column: 1;
-  }
+.cv-content > .left-column {
+  grid-column: 1;
 }
 
 @include media-query($on-palm) {
@@ -31,10 +28,12 @@
 
   .cv-content > .right-column {
     grid-column: 1;
+    grid-row: 2;
   }
 
   .cv-content > .left-column {
     grid-column: 1;
+    grid-row: 1;
   }
 }
 
