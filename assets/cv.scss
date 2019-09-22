@@ -4,6 +4,7 @@
 
 @import "minima/colors";
 @import "minima/sizes";
+@import "minima/fonts";
 
 .cv-content {
   display: grid;
@@ -43,6 +44,7 @@
 
 .cv-content .block > .title {
   font-weight: bolder;
+  font-family: $post-font-family;
   text-decoration: none;
   border-bottom: 0.2em solid $brand-color;
   font-size: 18pt;
@@ -90,13 +92,14 @@
     color: $grey-color;
   }
   &:nth-child(n + 2) {
-    margin-top: 0.5em;
+    margin-top: 1em;
   }
 }
 
 .cv-content .block .work-activity {
   &:before {
     content: "■";
+    color: $brand-light;
     margin-right: 0.2em;
     margin-left: 0.2em;
   }
