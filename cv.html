@@ -1,11 +1,20 @@
 ---
 layout: default
 styles: /assets/cv.css
+title: Alexey Nikitin's CV
+description: "Alexey Nikitin - Senior Android Devoper"
+image: https://gravatar.com/avatar/330d92532a060be3bb43758770067089
+tags:
+  - cv
+  - Alexey Nikitin CV
+  - Android Developer CV
+  - Developer CV
 ---
 
 <div class="cv-content">
 
   <div class="left-column">
+
     <div class="block">
       <p class="title">Position</p>
       <p>Senior Android Developer</p>
@@ -96,6 +105,30 @@ styles: /assets/cv.css
     </div>
 
     <div class="block">
+      <p class="title">Open projects</p>
+
+      <p>
+        <span class="bio-title">
+          <span>PorFlavor</span>
+          <span>2019</span>
+        </span>
+        <a href="https://github.com/nikialeksey/porflavor">PorFlavor</a> is the gradle plugin for extending android productFlavors.<br>
+
+        <span class="bio-title">
+          <span>Nullfree</span>
+          <span>2019</span>
+        </span>
+        <a href="https://iwillfailyou.com/nullfree">Nullfree</a> will fail your build if your project has a null.<br>
+
+        <span class="bio-title">
+          <span>Arspell</span>
+          <span>2018</span>
+        </span>
+        <a href="https://github.com/nikialeksey/arspell">Arspell</a> is resources spell testing library.<br>
+      </p>
+    </div>
+
+    <div class="block">
       <p class="title">Achievements</p>
 
       <p>
@@ -115,7 +148,7 @@ styles: /assets/cv.css
           <span>President scholarship</span>
           <span>2014</span>
         </span>
-        <a href="https://www.altstu.ru/structure/chair/pm/news/7767/">President scholarship</a>
+        <a href="https://www.altstu.ru/structure/chair/pm/news/7767/">President scholarship.</a>
 
         <span class="bio-title">
           <span>Winner (2nd place)</span>
@@ -150,6 +183,7 @@ styles: /assets/cv.css
         {% if site.linkedin_username %}
         <span class="enum-prefix">LinkedIn:</span> <a href="https://www.linkedin.com/in/{{ site.linkedin_username | cgi_escape | escape }}">{{ site.linkedin_username }}</a><br>
         {% endif %}
+        <img src="{{ page.image }}" alt="Alexey Nikitin's photo"/>
       </p>
     </div>
 

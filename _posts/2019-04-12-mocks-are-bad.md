@@ -14,7 +14,7 @@ tags:
 [unit-тестов](https://en.wikipedia.org/wiki/Unit_testing)? Если это так, то я знаю, как сделать ваши тесты качественнее - 
 никогда не используйте моки! 
 
-![Ship by Greg Montani]({{ site.url }}/assets/imgs/ship.jpg)
+![Ship by Greg Montani]({{ site.url }}{{ page.image }})
 
 <!--more-->
 
