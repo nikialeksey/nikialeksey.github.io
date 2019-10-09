@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby RUBY_VERSION
 
-gem "jekyll", "3.4.3"
+gem "jekyll", "3.8.5"
 gem "jekyll-seo-tag"
 gem "minima", "2.1.0"
 gem "jekyll-paginate", "1.1.0"
