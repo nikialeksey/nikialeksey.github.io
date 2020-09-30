@@ -19,10 +19,25 @@ tags:
 исключениям в языках программирования.
 
 ### Java
+![Top 10 Exception types by Frequency in 1000+ Applications]({{ site.url }}/assets/imgs/top-10-java-exceptions.png)
+https://blog.overops.com/the-top-10-exceptions-types-in-production-java-applications-based-on-1b-events/
 
 ### JS
+[Top 10 JavaScript errors from 1000+ projects](https://rollbar.com/blog/top-10-javascript-errors/)
+1. Uncaught TypeError: Cannot read property
+2. TypeError: ‘undefined’ is not an object 
+3. TypeError: null is not an object 
+4. (unknown): Script error
+5. TypeError: Object doesn’t support property
+6. TypeError: ‘undefined’ is not a function
+7. Uncaught RangeError
+8. TypeError: Cannot read property ‘length’
+9. Uncaught TypeError: Cannot set property
+10. ReferenceError: event is not defined
 
 ### RubyOnRails
+![Top 10 errors from 1000+ Ruby on Rails projects]({{ site.url }}/assets/imgs/top-10-ror-errors.png)
+https://rollbar.com/blog/top-10-ruby-on-rails-errors/
 
 Эта проблема реальна. Я не первый, кто ее заметил, поэтому уже придумано 
 множество инструментов для борьбы с ней:

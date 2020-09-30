@@ -1,0 +1,259 @@
+{% assign strings = site.data.cv %}
+<div class="cv-content">
+
+  <div class="left-column">
+    <div class="block">
+      <p class="title">{{ strings.positionTitle[page.lang] }}</p>
+      <p>{{ strings.position[page.lang] }} (<a href="https://time.is/UTC+7">UTC+7</a>),
+      {% if page.lang == "ru" %}
+        <a href="/cv">{{ strings.version[page.lang] }}</a>
+      {% else %}
+        <a href="/cv/ru">{{ strings.version[page.lang] }}</a>
+      {% endif %}
+    </div>
+
+    <div class="block">
+      <p class="title">{{ strings.experienceTitle[page.lang] }}</p>
+      <p>
+        <span class="bio-title">
+          <span>Mail.Ru</span>
+          <span>02/2019 - 09/2020</span>
+        </span>
+        {{ strings.workActivity.mailRu.position[page.lang] }}<br>
+        <span class="work-activity">{{ strings.workActivity.mailRu.icq.description[page.lang] }}
+          <a href="https://play.google.com/store/apps/details?id=com.icq.mobile.client">{{ strings.workActivity.mailRu.icq.appTitle[page.lang] }}</a>
+        </span><br>
+
+        <span class="bio-title">
+          <span>Siberian.Pro</span>
+          <span>05/2018 - 01/2019</span>
+        </span>
+        {{ strings.workActivity.siberianPro.position[page.lang] }}<br>
+        <span class="work-activity">{{ strings.workActivity.siberianPro.switips.description[page.lang] }}
+          <a href="https://play.google.com/store/apps/details?id=com.switips.mobileapp">{{ strings.workActivity.siberianPro.switips.appTitle[page.lang] }}</a>
+        </span><br>
+        <span class="work-activity">{{ strings.workActivity.siberianPro.exoatlet.description[page.lang] }}
+          <a href="https://www.exoatlet.com/en">{{ strings.workActivity.siberianPro.exoatlet.appTitle[page.lang] }}</a>
+        </span><br>
+
+        <span class="bio-title">
+          <span>Modulkassa</span>
+          <span>04/2017 - 05/2018</span>
+        </span>
+        {{ strings.workActivity.modulkassa.position[page.lang] }}<br>
+        <span class="work-activity">{{ strings.workActivity.modulkassa.modulkassa.description[page.lang] }}
+          <a href="https://play.google.com/store/apps/details?id=ru.modulkassa.android.apps.pos">{{ strings.workActivity.modulkassa.modulkassa.appTitle[page.lang] }}</a>
+        </span><br>
+        <span class="work-activity">{{ strings.workActivity.modulkassa.opensource.description[page.lang] }}</span><br>
+
+        <span class="bio-title">
+          <span>SberTech</span>
+          <span>08/2016 - 04/2017</span>
+        </span>
+        {{ strings.workActivity.sbertech.position[page.lang] }}<br>
+        <span class="work-activity">{{ strings.workActivity.sbertech.project.description[page.lang] }}</span><br>
+
+
+        <span class="bio-title">
+          <span>Freematiq</span>
+          <span>12/2015 - 08/2016</span>
+        </span>
+        {{ strings.workActivity.freematiq.position[page.lang] }}<br>
+        <span class="work-activity">{{ strings.workActivity.freematiq.iretail.description[page.lang] }}
+          <a href="https://play.google.com/store/apps/details?id=com.iretail.app">{{ strings.workActivity.freematiq.iretail.appTitle[page.lang] }}</a></span><br>
+        <span class="work-activity">{{ strings.workActivity.freematiq.progress.description[page.lang] }}</span><br>
+      </p>
+    </div>
+
+    <div class="block">
+      <p class="title">{{ strings.talks.title[page.lang] }}</p>
+
+      <p>
+        <span class="bio-title">
+          <span>[DEV] Digital Meetup #4</span>
+          <span>04/2019</span>
+        </span>
+        <a href="https://youtu.be/wjGA4xkuhcM">{{ strings.talks.mocksVsFakes[page.lang] }}</a>
+      </p>
+
+      <p>
+        <span class="bio-title">
+          <span>Siberian.Pro talks</span>
+          <span>12/2018</span>
+        </span>
+        <a href="https://youtu.be/KNrc-XcL9ys">{{ strings.talks.staticAnalyser[page.lang] }}</a>
+      </p>
+
+      <p>
+        <span class="bio-title">
+          <span>Siberian.Pro talks</span>
+          <span>12/2018</span>
+        </span>
+        <a href="https://youtu.be/3yjxb2S1f8I">{{ strings.talks.optimizeDevProcess[page.lang] }}</a>
+      </p>
+    </div>
+
+    <div class="block">
+      <p class="title">{{ strings.education.title[page.lang] }}</p>
+      <p>
+        <span class="bio-title">
+          <span>{{ strings.education.astu.title[page.lang] }}</span>
+          <span>2011 - 2015</span>
+        </span>
+        {{ strings.education.astu.degree[page.lang] }},
+        <a href="https://www.altstu.ru/sveden/oop/0531/description/">{{ strings.education.astu.faculty[page.lang] }}</a><br>
+        {{ strings.education.astu.gpa[page.lang] }}
+      </p>
+    </div>
+
+    <div class="block">
+      <p class="title">Open projects</p>
+
+      <p>
+        <span class="bio-title">
+          <span>Iwillfailyou <img src="https://img.shields.io/github/stars/iwillfailyou/service?style=social"/></span>
+          <span>2020</span>
+        </span>
+        <a href="https://iwillfailyou.com">Iwillfailyou</a> is a static analyser for elegant code.<br>
+
+        <span class="bio-title">
+          <span>Jood <img src="https://img.shields.io/github/stars/nikialeksey/jood?style=social"/></span>
+          <span>2020</span>
+        </span>
+        <a href="https://github.com/nikialeksey/jood">Jood</a> is an object oriented sql-database library written in
+        Java.<br>
+
+        <span class="bio-title">
+          <span>PorFlavor <img src="https://img.shields.io/github/stars/nikialeksey/porflavor?style=social"/></span>
+          <span>2019</span>
+        </span>
+        <a href="https://github.com/nikialeksey/porflavor">PorFlavor</a> is a gradle plugin for extending android
+        productFlavors.<br>
+
+        <span class="bio-title">
+          <span>Nullfree <img src="https://img.shields.io/github/stars/nikialeksey/nullfree?style=social"/></span>
+          <span>2019</span>
+        </span>
+        <a href="https://github.com/nikialeksey/nullfree/">Nullfree</a> will fail your build if your project has a null.<br>
+
+        <span class="bio-title">
+          <span>Arspell <img src="https://img.shields.io/github/stars/nikialeksey/arspell?style=social"/></span>
+          <span>2018</span>
+        </span>
+        <a href="https://github.com/nikialeksey/arspell">Arspell</a> is a resources spell testing library.<br>
+      </p>
+    </div>
+
+    <div class="block">
+      <p class="title">Achievements</p>
+
+      <p>
+        <span class="bio-title">
+          <span>Winner (1st place)</span>
+          <span>2015</span>
+        </span>
+        <a href="http://neerc.secna.ru/ALTAI_U/2015/monitor/monitor.htm">Altai Universiade - 2015.</a> <a
+          href="http://neerc.secna.ru/ALTAI_U/index.php">What is Altai Universiade?</a>
+
+        <span class="bio-title">
+          <span>Winner (2nd place)</span>
+          <span>2015</span>
+        </span>
+        <a href="https://world-it-planet.org/board/index.php?YEAR=2014/15&TAB=0">IT Planet: Programming: Java.</a> <a
+          href="https://world-it-planet.org/">What is IT-Planet?</a>
+
+        <span class="bio-title">
+          <span>President scholarship</span>
+          <span>2014</span>
+        </span>
+        <a href="https://www.altstu.ru/structure/chair/pm/news/7767/">President scholarship.</a>
+
+        <span class="bio-title">
+          <span>Winner (2nd place)</span>
+          <span>2013</span>
+        </span>
+        <a href="http://neerc.secna.ru/2013/ws_2013.htm">ACM ICPC 2013 West Siberian.</a> <a
+          href="https://icpc.baylor.edu/">What is ACM ICPC?</a>
+
+      </p>
+    </div>
+
+  </div>
+
+  <div class="right-column">
+    <div class="block">
+      <p class="title">Contacts</p>
+      <p>
+        <span class="enum-prefix">Phone:</span> <a href="tel:+79132536769">+7(913) 253 67-69</a><br>
+        <span class="enum-prefix">Email:</span> <a href="mailto:nikialeksey@gmail.com">nikialeksey@gmail.com</a><br>
+        {% if site.github_username %}
+        <span class="enum-prefix">Github:</span> <a
+          href="https://github.com/{{ site.github_username | cgi_escape | escape }}">{{ site.github_username }}</a><br>
+        {% endif %}
+        {% if site.twitter_username %}
+        <span class="enum-prefix">Twitter:</span> <a
+          href="https://www.twitter.com/{{ site.twitter_username | cgi_escape | escape }}">{{ site.twitter_username
+        }}</a><br>
+        {% endif %}
+        {% if site.linkedin_username %}
+        <span class="enum-prefix">LinkedIn:</span> <a
+          href="https://www.linkedin.com/in/{{ site.linkedin_username | cgi_escape | escape }}">{{
+        site.linkedin_username }}</a><br>
+        {% endif %}
+        <a href="https://stackexchange.com/users/4175633">
+          <img src="https://stackexchange.com/users/flair/4175633.png"
+               width="208" height="58"
+               alt="Профиль участника nikialeksey в Stack Exchange, сети бесплатных сайтов вопросов и ответов, управляемых сообществом"
+               title="Профиль участника nikialeksey в Stack Exchange, сети бесплатных сайтов вопросов и ответов, управляемых сообществом">
+        </a>
+      </p>
+    </div>
+
+    <div class="block">
+      <p class="title">About me</p>
+      <p>
+        I'm the one who better writes scalable, maintainable, inappropriate algorithm than optimal but not readable.
+        A code maintainability is always prioritized over those of his efficiency.
+      </p>
+      <p>
+        My personality type: INTJ (description
+        <a href="https://www.typeplanet.ru/type-descriptions/intj/career">ru</a>,
+        <a href="https://psychologia.co/intj/">en</a>)
+        from <a href="https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator">MBTI</a> tests
+      </p>
+    </div>
+
+    <div class="block">
+      <p class="title">Languages</p>
+      <p>
+        <span class="enum-title">Russian</span> native<br>
+        <span class="enum-title">English</span> Pre-Intermediate<br>
+      </p>
+    </div>
+
+    <div class="block">
+      <p class="title">Skills</p>
+      <p>
+        <span class="enum-title">Java</span> primary language<br>
+        <span class="enum-title">Kotlin</span> primary language<br>
+        <span class="enum-title">Python </span> secondary language<br>
+        <span class="enum-title">Android</span> SDK, RxJava, Room, Material,
+        MVP, MVI, OkHttp, Retrofit, LeakCanary, Stetho, Profiler, Gradle,
+        Maven <br>
+        <span class="enum-title">CI/CD</span> build automate, TravisCI,
+        Gitlab CI, Circle CI, TeamCity, Jenkins, Docker, Artifactory, Maven
+        Central, jCenter <br>
+        <span class="enum-title">Git</span> git-flow, rebase, cherry-pick, unsquash commits<br>
+      </p>
+    </div>
+
+    <div class="block">
+      <p class="title">Hobby</p>
+      <p>
+        <span class="enum-title">Programming</span> is my hobby and job<br>
+        <span class="enum-title">Singing</span> makes me happy<br>
+      </p>
+    </div>
+  </div>
+
+</div>

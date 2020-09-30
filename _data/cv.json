@@ -1,0 +1,165 @@
+{
+  "positionTitle": {
+    "en": "Position",
+    "ru": "Должность"
+  },
+  "position": {
+    "en": "Remote Android Developer",
+    "ru": "Senior Android-разработчик, удаленно"
+  },
+  "version": {
+    "en": "Версия на русском",
+    "ru": "EN version"
+  },
+  "experienceTitle": {
+    "en": "Experience",
+    "ru": "Опыт"
+  },
+  "workActivity": {
+    "mailRu": {
+      "position": {
+        "en": "Senior Android Developer",
+        "ru": "Senior Android-разработчик"
+      },
+      "icq": {
+        "description": {
+          "en": "Develop and maintain",
+          "ru": "Разработка и поддержка"
+        },
+        "appTitle": {
+          "en": "ICQ for Android",
+          "ru": "ICQ для Android"
+        }
+      }
+    },
+
+    "siberianPro": {
+      "position": {
+        "en": "Lead Android Developer",
+        "ru": "Lead Android-разработчик"
+      },
+      "switips": {
+        "description": {
+          "en": "Develop, maintain and lead",
+          "ru": "Разработка, поддержка и техническое руководство"
+        },
+        "appTitle": {
+          "en": "SWITIPS - Cashback service app",
+          "ru": "SWITIPS - Кэшбэк-сервис"
+        }
+      },
+      "exoatlet": {
+        "description": {
+          "en": "Develop, maintain and lead",
+          "ru": "Разработка, поддержка и техническое руководство"
+        },
+        "appTitle": {
+          "en": "Exoatlet - Exoskeleton manipulation app",
+          "ru": "Exoatlet - Приложение для управления экзоскелетом"
+        }
+      }
+    },
+
+    "modulkassa": {
+      "position": {
+        "en": "Senior Android Developer",
+        "ru": "Senior Android-разработчик"
+      },
+      "modulkassa": {
+        "description": {
+          "en": "Develop and maintain",
+          "ru": "Разработка и поддержка"
+        },
+        "appTitle": {
+          "en": "Modulkassa - app for point of sale",
+          "ru": "Modulkassa - кассовое ПО"
+        }
+      },
+      "opensource": {
+        "description": {
+          "en": "Started writing the blog and Open Source projects",
+          "ru": "Начал писать блог и первые собственные открытые проекты"
+        }
+      }
+    },
+
+    "sbertech": {
+      "position": {
+        "en": "Java Developer",
+        "ru": "Java-разработчик"
+      },
+      "project": {
+        "description": {
+          "en": "Got the experience of writing enterprise applications in a big company",
+          "ru": "Получил опыт Enterprise-разработки приложений в большой IT-компании"
+        }
+      }
+    },
+
+    "freematiq": {
+      "position": {
+        "en": "Middle Android Developer",
+        "ru": "Middle Android-разработчик"
+      },
+      "iretail": {
+        "description": {
+          "en": "Develop and maintain",
+          "ru": "Разработка и поддержка"
+        },
+        "appTitle": {
+          "en": "iRetail - app for point of sale",
+          "ru": "iRetail - кассовое ПО"
+        }
+      },
+      "progress": {
+        "description": {
+          "en": "Grew up from Junior to Middle developer",
+          "ru": "Вырос с Junior до Middle разработчика"
+        }
+      }
+    }
+
+  },
+  "talks": {
+    "title": {
+      "en": "Talks",
+      "ru": "Выступления"
+    },
+    "mocksVsFakes": {
+      "en": "Unit-testing: Mocks VS Fakes (in Russian)",
+      "ru": "Unit-тестирование: Mocks против Fakes"
+    },
+    "staticAnalyser": {
+      "en": "Static Analysis: How to make it work (in Russian)",
+      "ru": "Статический анализатор: как заставить его работать"
+    },
+    "optimizeDevProcess": {
+      "en": "Optimize development process (in Russian)",
+      "ru": "Оптимизация процесса разработки"
+    }
+  },
+  "education": {
+    "title": {
+      "en": "Education",
+      "ru": "Образование"
+    },
+    "astu": {
+      "title": {
+        "en": "ASTU",
+        "ru": "АлтГТУ"
+      },
+      "degree": {
+        "en": "Bachelor's degree",
+        "ru": "Бакалавриат"
+      },
+      "faculty": {
+        "en": "Faculty of Information Technologies, Program Engineering",
+        "ru": "Факультет информационных технологий, Программная инженерия"
+      },
+      "gpa": {
+        "en": "GPA: 4.85 out of 5.00",
+        "ru": "Средний балл: 4.85 из 5.00"
+      }
+    }
+  }
+}
