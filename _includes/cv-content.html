@@ -4,12 +4,7 @@
   <div class="left-column">
     <div class="block">
       <p class="title">{{ strings.positionTitle[page.lang] }}</p>
-      <p>{{ strings.position[page.lang] }} (<a href="https://time.is/UTC+7">UTC+7</a>),
-      {% if page.lang == "ru" %}
-        <a href="/cv">{{ strings.version[page.lang] }}</a>
-      {% else %}
-        <a href="/cv/ru">{{ strings.version[page.lang] }}</a>
-      {% endif %}
+      <p>{{ strings.position[page.lang] }} (<a href="https://time.is/UTC+7">UTC+7</a>)
     </div>
 
     <div class="block">
@@ -107,7 +102,7 @@
     </div>
 
     <div class="block">
-      <p class="title">Open projects</p>
+      <p class="title">{{ strings.personalProjectsTitle[page.lang] }}</p>
 
       <p>
         <span class="bio-title">
@@ -120,15 +115,13 @@
           <span>Jood <img src="https://img.shields.io/github/stars/nikialeksey/jood?style=social"/></span>
           <span>2020</span>
         </span>
-        <a href="https://github.com/nikialeksey/jood">Jood</a> is an object oriented sql-database library written in
-        Java.<br>
+        <a href="https://github.com/nikialeksey/jood">Jood</a> is an object oriented sql-database library written in Java.<br>
 
         <span class="bio-title">
           <span>PorFlavor <img src="https://img.shields.io/github/stars/nikialeksey/porflavor?style=social"/></span>
           <span>2019</span>
         </span>
-        <a href="https://github.com/nikialeksey/porflavor">PorFlavor</a> is a gradle plugin for extending android
-        productFlavors.<br>
+        <a href="https://github.com/nikialeksey/porflavor">PorFlavor</a> is a gradle plugin for extending android productFlavors.<br>
 
         <span class="bio-title">
           <span>Nullfree <img src="https://img.shields.io/github/stars/nikialeksey/nullfree?style=social"/></span>
@@ -145,7 +138,7 @@
     </div>
 
     <div class="block">
-      <p class="title">Achievements</p>
+      <p class="title">{{ strings.achievementsTitle[page.lang] }}</p>
 
       <p>
         <span class="bio-title">
@@ -184,7 +177,7 @@
     <div class="block">
       <p class="title">Contacts</p>
       <p>
-        <span class="enum-prefix">Phone:</span> <a href="tel:+79132536769">+7(913) 253 67-69</a><br>
+        <span class="enum-prefix">Tel:</span> <a href="tel:+79132536769">+7(913) 253 67-69</a><br>
         <span class="enum-prefix">Email:</span> <a href="mailto:nikialeksey@gmail.com">nikialeksey@gmail.com</a><br>
         {% if site.github_username %}
         <span class="enum-prefix">Github:</span> <a

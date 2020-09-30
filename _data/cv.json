@@ -7,10 +7,6 @@
     "en": "Remote Android Developer",
     "ru": "Senior Android-разработчик, удаленно"
   },
-  "version": {
-    "en": "Версия на русском",
-    "ru": "EN version"
-  },
   "experienceTitle": {
     "en": "Experience",
     "ru": "Опыт"
@@ -161,5 +157,14 @@
         "ru": "Средний балл: 4.85 из 5.00"
       }
     }
+  },
+  "personalProjectsTitle": {
+    "en": "Open projects",
+    "ru": "Проекты"
+  },
+
+  "achievementsTitle": {
+    "en": "Achievements",
+    "ru": "Достижения"
   }
 }

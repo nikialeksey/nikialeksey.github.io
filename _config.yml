@@ -30,6 +30,7 @@ theme: minima
 gems:
   - jekyll-seo-tag
   - jekyll-paginate
+  - jemoji
 exclude:
   - Gemfile
   - Gemfile.lock
