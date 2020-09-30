@@ -4,13 +4,13 @@
     {% assign default_paths = site.pages | map: "path" %}
     {% assign page_paths = site.header_pages | default: default_paths %}
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    {% include social.html %}
     {% if page.translations %}
-      <span class="translations">
+    <span class="translations">
       {% for translation in page.translations %}
         <a href="{{ translation.link }}">{{ site.data.header.translationTitle[translation.lang] }}</a>
       {% endfor %}
       </span>
     {% endif %}
-    {% include social.html %}
   </div>
 </header>

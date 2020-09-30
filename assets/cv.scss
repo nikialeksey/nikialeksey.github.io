@@ -6,6 +6,10 @@
 @import "minima/sizes";
 @import "minima/fonts";
 
+.page-content {
+    padding: 10px 0;
+}
+
 .cv-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
