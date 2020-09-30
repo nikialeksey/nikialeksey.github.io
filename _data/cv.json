@@ -166,5 +166,30 @@
   "achievementsTitle": {
     "en": "Achievements",
     "ru": "Достижения"
+  },
+
+  "contactsTitle": {
+    "en": "Contacts",
+    "ru": "Контакты"
+  },
+
+  "aboutMeTitle": {
+    "en": "About me",
+    "ru": "Обо мне"
+  },
+
+  "languagesTitle": {
+    "en": "Languages",
+    "ru": "Языки"
+  },
+
+  "skillsTitle": {
+    "en": "Skills",
+    "ru": "Навыки"
+  },
+
+  "hobbyTitle": {
+    "en": "Hobby",
+    "ru": "Хобби"
   }
 }

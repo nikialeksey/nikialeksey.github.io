@@ -175,7 +175,7 @@
 
   <div class="right-column">
     <div class="block">
-      <p class="title">Contacts</p>
+      <p class="title">{{ strings.contactsTitle[page.lang] }}</p>
       <p>
         <span class="enum-prefix">Tel:</span> <a href="tel:+79132536769">+7(913) 253 67-69</a><br>
         <span class="enum-prefix">Email:</span> <a href="mailto:nikialeksey@gmail.com">nikialeksey@gmail.com</a><br>
@@ -185,13 +185,11 @@
         {% endif %}
         {% if site.twitter_username %}
         <span class="enum-prefix">Twitter:</span> <a
-          href="https://www.twitter.com/{{ site.twitter_username | cgi_escape | escape }}">{{ site.twitter_username
-        }}</a><br>
+          href="https://www.twitter.com/{{ site.twitter_username | cgi_escape | escape }}">{{ site.twitter_username }}</a><br>
         {% endif %}
         {% if site.linkedin_username %}
         <span class="enum-prefix">LinkedIn:</span> <a
-          href="https://www.linkedin.com/in/{{ site.linkedin_username | cgi_escape | escape }}">{{
-        site.linkedin_username }}</a><br>
+          href="https://www.linkedin.com/in/{{ site.linkedin_username | cgi_escape | escape }}">{{ site.linkedin_username }}</a><br>
         {% endif %}
         <a href="https://stackexchange.com/users/4175633">
           <img src="https://stackexchange.com/users/flair/4175633.png"
@@ -203,7 +201,7 @@
     </div>
 
     <div class="block">
-      <p class="title">About me</p>
+      <p class="title">{{ strings.aboutMeTitle[page.lang] }}</p>
       <p>
         I'm the one who better writes scalable, maintainable, inappropriate algorithm than optimal but not readable.
         A code maintainability is always prioritized over those of his efficiency.
@@ -217,7 +215,7 @@
     </div>
 
     <div class="block">
-      <p class="title">Languages</p>
+      <p class="title">{{ strings.languagesTitle[page.lang] }}</p>
       <p>
         <span class="enum-title">Russian</span> native<br>
         <span class="enum-title">English</span> Pre-Intermediate<br>
@@ -225,7 +223,7 @@
     </div>
 
     <div class="block">
-      <p class="title">Skills</p>
+      <p class="title">{{ strings.skillsTitle[page.lang] }}</p>
       <p>
         <span class="enum-title">Java</span> primary language<br>
         <span class="enum-title">Kotlin</span> primary language<br>
@@ -241,7 +239,7 @@
     </div>
 
     <div class="block">
-      <p class="title">Hobby</p>
+      <p class="title">{{ strings.hobbyTitle[page.lang] }}</p>
       <p>
         <span class="enum-title">Programming</span> is my hobby and job<br>
         <span class="enum-title">Singing</span> makes me happy<br>
