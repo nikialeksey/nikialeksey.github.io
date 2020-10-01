@@ -256,6 +256,32 @@
     "ru": "Языки"
   },
 
+  "languages": {
+    "russian": {
+      "title": {
+        "en": "Russian",
+        "ru": "Русский"
+      },
+
+      "level": {
+        "en": "native",
+        "ru": "родной язык"
+      }
+    },
+
+    "english": {
+      "title": {
+        "en": "English",
+        "ru": "Английский"
+      },
+
+      "level": {
+        "en": "Pre-Intermediate",
+        "ru": "на уровне рабочей переписки"
+      }
+    }
+  },
+
   "skillsTitle": {
     "en": "Skills",
     "ru": "Навыки"
