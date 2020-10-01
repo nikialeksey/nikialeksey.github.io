@@ -290,5 +290,29 @@
   "hobbyTitle": {
     "en": "Hobby",
     "ru": "Хобби"
+  },
+
+  "hobby": {
+    "programming": {
+      "title": {
+        "en": "Programming",
+        "ru": "Программирование"
+      },
+      "is": {
+        "en": "is my hobby and job",
+        "ru": "- это мое хобби и работа"
+      }
+    },
+
+    "singing": {
+      "title": {
+        "en": "Singing",
+        "ru": "Музыка"
+      },
+      "is": {
+        "en": "makes me happy",
+        "ru": "делает меня счастливым :)"
+      }
+    }
   }
 }
