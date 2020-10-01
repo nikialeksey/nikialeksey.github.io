@@ -168,14 +168,87 @@
     "ru": "Достижения"
   },
 
+  "achievements": {
+    "altaiUniversiade": {
+      "title": {
+        "en": "Winner (1st place)",
+        "ru": "Победитель (1-ое место)"
+      },
+      "description": {
+        "en": "Altai Universiade - 2015.",
+        "ru": "Универсиада Алтая - 2015."
+      },
+      "whatIs": {
+        "en": "What is Altai Universiade?",
+        "ru": "Что это?"
+      }
+    },
+
+    "itPlanet": {
+      "title": {
+        "en": "Winner (2nd place)",
+        "ru": "Победитель (2-ое место)"
+      },
+      "description": {
+        "en": "IT Planet: Programming: Java.",
+        "ru": "IT Планета: Java-программирование."
+      },
+      "whatIs": {
+        "en": "What is IT-Planet?",
+        "ru": "Что это?"
+      }
+    },
+
+    "scholarship": {
+      "title": {
+        "en": "Scholarship",
+        "ru": "Стипендия"
+      },
+      "description": {
+        "en": "President scholarship.",
+        "ru": "Президентская стипендия."
+      }
+    },
+
+    "acmIcpc": {
+      "title": {
+        "en": "Winner (2nd place)",
+        "ru": "Победитель (2-ое место)"
+      },
+      "description": {
+        "en": "ACM ICPC 2013 West Siberian.",
+        "ru": "ACM ICPC 2013 Западная Сибирь."
+      },
+      "whatIs": {
+        "en": "What is ACM ICPC?",
+        "ru": "Что это?"
+      }
+    }
+  },
+
   "contactsTitle": {
     "en": "Contacts",
     "ru": "Контакты"
   },
 
+  "stackexchangeProfileTitle": {
+    "en": "nikialeksey profile in Stack Exchange",
+    "ru": "Профиль участника nikialeksey в Stack Exchange, сети бесплатных сайтов вопросов и ответов, управляемых сообществом"
+  },
+
   "aboutMeTitle": {
     "en": "About me",
     "ru": "Обо мне"
+  },
+
+  "aboutMe": {
+    "en": "I'm the one who better writes scalable, maintainable, inappropriate algorithm than optimal but not readable.\nA code maintainability is always prioritized over those of his efficiency.",
+    "ru": "Я тот, кто лучше напишет масштабируемый, поддерживаемый, тестируемый и неоптимальный алгоритм, чем оптимальный, но не читабельный. Поддерживаемость кода всегда приоритетнее его эффективности."
+  },
+
+  "personalType": {
+    "en": "My personality type: <a href=\"https://psychologia.co/intj/\">INTJ</a> from <a href=\"https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator\">MBTI</a> tests",
+    "ru": "Мой тип личности: <a href=\"https://www.my-type.ru/intj\">INTJ</a> по тесту <a href=\"https://ru.wikipedia.org/wiki/%D0%A2%D0%B8%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F_%D0%9C%D0%B0%D0%B9%D0%B5%D1%80%D1%81_%E2%80%94_%D0%91%D1%80%D0%B8%D0%B3%D0%B3%D1%81\">MBTI</a>"
   },
 
   "languagesTitle": {
