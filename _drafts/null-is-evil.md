@@ -20,7 +20,17 @@ tags:
 
 ### Java
 ![Top 10 Exception types by Frequency in 1000+ Applications]({{ site.url }}/assets/imgs/top-10-java-exceptions.png)
-https://blog.overops.com/the-top-10-exceptions-types-in-production-java-applications-based-on-1b-events/
+[Top 10 Exception types by Frequency in 1000+ Applications](https://blog.overops.com/the-top-10-exceptions-types-in-production-java-applications-based-on-1b-events/)
+1. NullPointerException – 70% of Production Environments
+2. NumberFormatException – 55% of Production Environments
+3. IllegalArgumentException – 50% of Production Environments
+4. RuntimeException – 23% of Production Environments
+5. IllegalStateException – 22% of Production Environments
+6. NoSuchMethodException – 16% of Production Environments
+7. ClassCastException – 15% of Production Environments
+8. Exception – 15% of Production Environments
+9. ParseException – 13% of Production Environments
+10. InvocationTargetException – 13% of Production Environments
 
 ### JS
 [Top 10 JavaScript errors from 1000+ projects](https://rollbar.com/blog/top-10-javascript-errors/)
@@ -37,7 +47,17 @@ https://blog.overops.com/the-top-10-exceptions-types-in-production-java-applicat
 
 ### RubyOnRails
 ![Top 10 errors from 1000+ Ruby on Rails projects]({{ site.url }}/assets/imgs/top-10-ror-errors.png)
-https://rollbar.com/blog/top-10-ruby-on-rails-errors/
+[https://rollbar.com/blog/top-10-ruby-on-rails-errors/](https://rollbar.com/blog/top-10-ruby-on-rails-errors/)
+1. ActionController::RoutingError
+2. NoMethodError: undefined method '[]' for nil:NilClass
+3. ActionController::InvalidAuthenticityToken
+4. Net::ReadTimeout
+5. ActiveRecord::RecordNotUnique: PG::UniqueViolation
+6. NoMethodError: undefined method 'id' for nil:NilClass
+7. ActionController::ParameterMissing
+8. ActionView::Template::Error: undefined local variable or method
+9. ActionController::UnknownFormat
+10. StandardError: An error has occurred, this and all later migrations canceled
 
 Эта проблема реальна. Я не первый, кто ее заметил, поэтому уже придумано 
 множество инструментов для борьбы с ней:
@@ -49,7 +69,7 @@ https://rollbar.com/blog/top-10-ruby-on-rails-errors/
 
 ## Интересно, были ли языки программирования без `null`?
 
-Возмем свежий список популярных языков программирования из tiobe.com:
+Возмем свежий список популярных языков программирования из https://www.tiobe.com/tiobe-index/:
 
 - Java (null)
 - C (NULL)
@@ -101,6 +121,8 @@ Algol 60 и решил его доработать. Чтобы вы могли �
 
 Тони - это знаметитый Тони Хоар, придумавший быструю сортировку. Эдсгер - не 
 менее знаменит, Эдсгер Дейкстра.  
+
+https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare
 
 ## 
 
