@@ -26,6 +26,7 @@ disqus:
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 theme: minima
 gems:
   - jekyll-seo-tag

@@ -75,7 +75,8 @@ ul, ol {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $base-font-weight;
+  font-weight: $title-font-weight;
+  font-family: $title-font-family;
 }
 
 
@@ -85,24 +86,22 @@ h1, h2, h3, h4, h5, h6 {
  */
 a {
   color: $brand-color;
-  text-decoration: none;
   font-weight: bolder;
+  text-decoration: underline;
 
   &:visited {
-    color: darken($brand-color, 15%);
+    color: $brand-color;
   }
 
   &:hover {
-    color: $text-color;
-    text-decoration: underline;
+    color: $brand-color;
   }
+}
+.site-title, h1 a, h2 a, h3 a, .pagination a, .social-media-list a {
+  text-decoration: none;
 
-  .social-media-list &:hover {
+  &:hover {
     text-decoration: none;
-
-    .username {
-      text-decoration: underline;
-    }
   }
 }
 
@@ -126,23 +125,25 @@ blockquote {
 
 
 /**
+ * Markdown
+ */
+.post-content strong {
+    font-weight: 600;
+}
+
+
+/**
  * Code formatting
  */
 pre,
 code {
-  @include relative-font-size(0.9375);
-  border: 1px solid $grey-color-light;
-  border-radius: 3px;
-  background-color: #eef;
-}
-
-code {
-  padding: 1px 5px;
+  @include relative-font-size(1.125);
 }
 
 pre {
   padding: 8px 12px;
   overflow-x: auto;
+  background: $brand-color-light;
 
   > code {
     border: 0;

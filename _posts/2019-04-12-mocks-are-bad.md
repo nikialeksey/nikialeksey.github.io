@@ -20,11 +20,11 @@ tags:
 
 ## Что такое Mock
 Для начала нужно разобраться с терминами, что такое моки? Моки - это объекты, созданные с помощью 
-[`Mockito.mock`](https://static.javadoc.io/org.mockito/mockito-core/2.10.0/org/mockito/Mockito.html):
+[`Mockito.mock`{:.language-java}{:.highlight}](https://static.javadoc.io/org.mockito/mockito-core/2.10.0/org/mockito/Mockito.html):
 ```java
 final Email email = Mockito.mock(Email.class);
 ```
-Получившийся объект реализует `Email` интерфейс, но все его методы еще ничего не делают, однако у нас есть возможность
+Получившийся объект реализует `Email`{:.language-java}{:.highlight} интерфейс, но все его методы еще ничего не делают, однако у нас есть возможность
 **определить поведение** для его методов:
 ```java
 Mockito.when(
@@ -50,14 +50,14 @@ Assert.assertThat(
 Это значит, что когда моки используются при написании тестов, то приходится думать о том коде, который находится внутри
 тестируемого объекта, потому что надо корректно сконфигурировать мок. Такой подход называется 
 [white-box testing](https://en.wikipedia.org/wiki/White-box_testing). 
-В примере выше при тестировании объекта `EmailPage` пришлось держать в голове реализацию метода `EmailPage#html`: 
-`Email#html` вызывается внутри него, значит, нужно определить поведение для этого метода у мока `Email`.
+В примере выше при тестировании объекта `EmailPage`{:.language-java}{:.highlight} пришлось держать в голове реализацию метода `EmailPage.html`{:.language-java}{:.highlight}: 
+`Email.html`{:.language-java}{:.highlight} вызывается внутри него, значит, нужно определить поведение для этого метода у мока `Email`{:.language-java}{:.highlight}.
 
 И почему же это плохо?
 
-Если изменить реализацию тестируемого метода `EmailPage#html`, то придется изменять и содержание теста, придется 
-изменить настройку мока, а, может, даже создать еще пару моков, потому что текущее поведения мока `Email` было 
-определено для старой реализации `EmailPage#html`. Старый тест был кем-то написан, на него было потрачено время и,
+Если изменить реализацию тестируемого метода `EmailPage.html`{:.language-java}{:.highlight}, то придется изменять и содержание теста, придется 
+изменить настройку мока, а, может, даже создать еще пару моков, потому что текущее поведения мока `Email`{:.language-java}{:.highlight} было 
+определено для старой реализации `EmailPage.html`{:.language-java}{:.highlight}. Старый тест был кем-то написан, на него было потрачено время и,
 деньги и вот теперь изменена реализация объекта, но не изменено его поведение, и тест перестал работать, и придется
 тратить еще время и деньги на переписывание старого теста. 
 
@@ -75,7 +75,7 @@ Assert.assertThat(
     )
 );
 ```
-Появился новый класс - `FakeEmail` - это легковесная простая реализация интерфейса `Email`, которая выглядит примерно 
+Появился новый класс - `FakeEmail`{:.language-java}{:.highlight} - это легковесная простая реализация интерфейса `Email`{:.language-java}{:.highlight}, которая выглядит примерно 
 так:
 ```java
 class FakeEmail implements Email {
@@ -92,7 +92,7 @@ class FakeEmail implements Email {
 ```
 Этот объект можно использовать в тестах, он не использует сеть, не использует базу данных, не майнит крипту... Более
 того, этот объект можно использовать в коде, ведь он полноценный, и программа будет работать, если все реализации 
-`Email` заменить на `FakeEmail`. Объекты таких классов я называю фейками, и они помогают тестировать другие объекты,
+`Email`{:.language-java}{:.highlight} заменить на `FakeEmail`{:.language-java}{:.highlight}. Объекты таких классов я называю фейками, и они помогают тестировать другие объекты,
 проверяя поведение, а не реализацию.
 
 ## Еще пример
@@ -104,19 +104,22 @@ class FilterRepository {
     public void updatePredicate(final String predicate) { ... }
 }
 ```
-В этом случае для проверки корректности метода `FilterRepository#updatePredicate` есть стандартный подход - 
-`Mockito.verify` для того, чтобы узнать, что некоторый метод объекта `CloudFile` был вызван:
+В этом случае для проверки корректности метода `FilterRepository.updatePredicate`{:.language-java}{:.highlight} есть стандартный подход - 
+`Mockito.verify`{:.language-java}{:.highlight} для того, чтобы узнать, что некоторый метод объекта `CloudFile`{:.language-java}{:.highlight} был вызван:
 ```java
 @Test
 public void updateName() {
     final CloudFile file = Mockito.mock(CloudFile.class);
     final FilterRepository repo = new FilterRepository(file);
     repo.updatePredicate("Cloud");
-    Mockito.verify(file, Mockito.times(1)).write(ArgumentMatchers.any(String.class));
+    Mockito.verify(
+        file, 
+        Mockito.times(1)
+    ).write(ArgumentMatchers.any(String.class));
 }
 ```
-Видите? Тут пришлось использовать `any`, потому что однозначно не ясно, как `FilterRepository` обновляет `predicate` в
-облачном хранилище, или же эта часть подвержена частым изменениям. И снова, тестируется то, как `FilterRepository` 
+Видите? Тут пришлось использовать `any`{:.language-java}{:.highlight}, потому что однозначно не ясно, как `FilterRepository`{:.language-java}{:.highlight} обновляет `predicate` в
+облачном хранилище, или же эта часть подвержена частым изменениям. И снова, тестируется то, как `FilterRepository`{:.language-java}{:.highlight} 
 взаимодействует со своими зависимостями. Однако, даже в этом случае возможно тестировать поведение объекта:
 ```java
 @Test
@@ -130,7 +133,7 @@ public void updateName() {
     )
 }
 ```
-Класс `FakeCloudFile` - дешевый аналог `CloudFile`, реализованный, например, `in-memory` способом, и он позволяет 
+Класс `FakeCloudFile`{:.language-java}{:.highlight} - дешевый аналог `CloudFile`{:.language-java}{:.highlight}, реализованный, например, `in-memory` способом, и он позволяет 
 тестировать поведение репозитория, а не его реализацию.
 
 ---

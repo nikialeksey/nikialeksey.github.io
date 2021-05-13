@@ -11,7 +11,7 @@ tags:
 
 Статический анализатор обычно помогает поддерживать выбранный стиль кода. Иногда
 он находит нетривиальные шаблонные проблемы. Но сегодня посмотрим на то,
-как статический анализатор заставляет менять даже архитектуру.
+как статический анализатор заставляет менять архитектуру.
 
 ![Videoconference Call by Jack Moreh]({{ site.url }}{{ page.image }})
 
@@ -127,8 +127,10 @@ Mail.getText(Mail.java:13)
 - `NoMultipleReturn` - нужно, чтобы в методах был только один оператор `return` 
 (Почему? Потому что много операторов `return` мешают восприятию кода)
 
-Обычно, проще всего решать `AllFinal` ошибки. Это места, которые нужно пометить
-ключевым словом `final`. С них и начнем.
+Ошибки статического анализатора нужно исправлять, иначе сборка в CI не соберется.
+Ошибок достаточно много, поэтому придется исправлять поэтапно. Обычно, проще 
+всего решать `AllFinal` ошибки. Это места, которые нужно пометить ключевым 
+словом `final`. С них и начнем.
 
 Хотя вот прямо сейчас нужно сделать отступление. Если вы нормальный программист,
 то "Что, блин, происходит?!" уже звучит в вашей голове. Потому что для чего 
@@ -140,7 +142,7 @@ Mail.getText(Mail.java:13)
 под копчиком. Поэтому предлагаю считать все происходящее в этой статье 
 [мысленным экспериментом](https://en.wikipedia.org/wiki/Thought_experiment).
 
-## AllFinal
+## AllFinal 1-ый этап
 Вернемся к `final`. Где там в самом первом месте у нас `final`?
 ```java
 Mail(Mail.java:8) > textIsHtml = false
@@ -157,9 +159,9 @@ Mail(Mail.java:8) > textIsHtml = false
 что приоритетнее `text/html`, ну а если все же `html` не был найден, то нужно 
 оставить флажок, чтобы разработчик понимал, что это найден не `html` контент.
 
-Очевидно, если просто поставить `private final textIsHtml`, то это не решит 
-проблему. И вот тут на помощь приходит концепция объектов. Задекларируем 
-следующее поведение:
+Очевидно, если просто поставить `private final textIsHtml`{:.language-java}{:.highlight}, 
+то это не решит проблему. И вот тут на помощь приходит концепция объектов. 
+Задекларируем следующее поведение:
 ```java
 public interface TextContent {
     String asString();
@@ -200,10 +202,10 @@ public final class HtmlTextContent implements TextContent {
 ```
 
 Да, да, да. Я уже чувствую запах летящего помидора: "Да это же две одинаковые 
-реализации!". Верно, реализации пока одинаковые. Достаточно того, что у нас есть 
+реализации!". Верно, реализации *пока* одинаковые. Достаточно того, что у нас есть 
 две реализации одного поведения и они соответствуют разным классам объектов.
 Просто мы еще не придумали бизнес логику, в которой они различны. Но ничего, 
-специально для этого вот бизнес случай: **нужно извлечь текст из email и
+специально для этого вот вам бизнес случай: **нужно извлечь текст из email и
 сделать его цитирование** (например, для того, чтобы генерировать автоматические 
 ответы на входящие письма). Различие в том, что для `text/html` цитирование будет 
 выглядеть так:
@@ -342,7 +344,7 @@ for (int i = 0; i < mp.getCount(); i++)
 "В `for`-иках то зачем `final`?" - спросите вы. Там объявляется переменная — 
 индекс `int i = 0`, и она имеет возможность быть переназначенной, как, 
 собственно, и происходит в блоке действия, выполняемого после каждой итерации.
-И, я уверяю вас, мы избавимся от этого не`final` поля через некоторое время. Но
+И, я уверяю вас, мы сможем избавиться от этого не `final` поля через некоторое время. Но
 пока, перейдем к другим ошибкам. 
 
 ## NoMultipleReturn
@@ -499,8 +501,429 @@ Mail.getText(Mail.java:13) > private
 ```
 
 ## NullFree
-Так так. `null` используется в этом коде для обозначения того, что текстовый 
+Так так. `null`{:.language-java}{:.highlight} используется в этом коде для обозначения того, что текстовый 
 контент не найден. Обычно, в таких ситуациях есть несколько вариантов:
 - бросать исключение, если текстовый контент не найден (тогда прийдется 
-  отлавливать его вместо проверки на `null`)
-- 
+отлавливать его вместо проверки на `null`{:.language-java}{:.highlight})
+- сделать еще одну реализацию `interface TextContent`{:.language-java}{:.highlight} для обозначения отсутствия
+текста
+- можно попробовать приравнять отсутствие текста к пустой строке
+
+Вот третьим путем мы и пойдем, так как ограничения нашей несуществующей бизнес 
+логики говорят, что, в случае отсутствия текстового контента в письме, можно 
+считать, что письмо просто состоит из пустой строки. Это значит, что все 
+присваивания `null`{:.language-java}{:.highlight}-ов можно заменить на `new SimpleTextContent("")`{:.language-java}{:.highlight}, а все 
+проверки на `null`{:.language-java}{:.highlight} можно заменить на `textContent.asString().isEmpty()`{:.language-java}{:.highlight}.
+Довольно просто!
+
+### Код без `null`-ов
+```java
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Part;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public final class Mail {
+
+    /**
+     * Return the primary text content of the message.
+     */
+    private TextContent getText(final Part p) throws
+        MessagingException, IOException {
+        final TextContent result;
+        if (p.isMimeType("text/*")) {
+            final String s = (String)p.getContent();
+            if (p.isMimeType("text/html")) {
+                result = new HtmlTextContent(s);
+            } else {
+                result = new SimpleTextContent(s);
+            }
+        } else if (p.isMimeType("multipart/alternative")) {
+            // prefer html text over plain text
+            final Multipart mp = (Multipart)p.getContent();
+            final List<TextContent> foundPlain = new ArrayList<>();
+            final List<TextContent> foundHtml = new ArrayList<>();
+            final List<TextContent> foundOthers = new ArrayList<>();
+            for (int i = 0; i < mp.getCount(); i++) {
+                final Part bp = mp.getBodyPart(i);
+                final TextContent foundText = getText(bp);
+                if (bp.isMimeType("text/plain")) {
+                    foundPlain.add(foundText);
+                } else if (bp.isMimeType("text/html")) {
+                    foundHtml.add(foundText);
+                } else {
+                    if (!foundText.asString().isEmpty()) {
+                        foundOthers.add(foundText);
+                    }
+                }
+            }
+
+            if (!foundHtml.isEmpty()) {
+                result = foundHtml.get(0);
+            } else if (!foundOthers.isEmpty()) {
+                result = foundOthers.get(0);
+            } else if (!foundPlain.isEmpty()) {
+                result = foundPlain.get(0);
+            } else {
+                result = new SimpleTextContent("");
+            }
+        } else if (p.isMimeType("multipart/*")) {
+            final Multipart mp = (Multipart)p.getContent();
+            final List<TextContent> foundTexts = new ArrayList<>();
+            for (int i = 0; i < mp.getCount(); i++) {
+                final TextContent s = getText(mp.getBodyPart(i));
+                if (!s.asString().isEmpty()) {
+                    foundTexts.add(s);
+                }
+            }
+            if (!foundTexts.isEmpty()) {
+                result = foundTexts.get(0);
+            } else {
+                result = new SimpleTextContent("");
+            }
+        } else {
+            result = new SimpleTextContent("");
+        }
+
+        return result;
+    }
+}
+```
+Однако ошибки анализатора все еще присутствуют:
+```java
+allfinal
+Mail.getText(Mail.java:29) > int i = 0
+Mail.getText(Mail.java:55) > int i = 0
+
+allpublic
+Mail.getText(Mail.java:13) > private 
+```
+
+## AllFinal 2-ой этап
+`for (final int i = 0; i < mp.getCount(); i++) {`{:.language-java}{:.highlight} - вот так, как вы понимаете,
+сделать нельзя. Вот если бы можно было проитерироваться по элементам 
+`multipart` 😌:
+```java
+for (final Part part: mp) {
+    ...    
+}
+```
+Однако, [`Multipart`](https://jakarta.ee/specifications/platform/8/apidocs/javax/mail/multipart)
+не реализует [`Iterable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html).
+
+Что ж, не беда, сделаем свою обертку! Для начала, нужно реализовать 
+[`Iterator`](https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html):
+```java
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Part;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public final class PartsIterator implements Iterator<Part> {
+
+    private final Multipart multipart;
+    private final AtomicInteger position;
+
+    public PartsIterator(
+        final Multipart multipart
+    ) {
+        this(multipart, new AtomicInteger(0));
+    }
+
+    public PartsIterator(
+        final Multipart multipart,
+        final AtomicInteger position
+    ) {
+        this.multipart = multipart;
+        this.position = position;
+    }
+
+
+    @Override
+    public boolean hasNext() {
+        try {
+            return position.intValue() < multipart.getCount();
+        } catch (final MessagingException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    @Override
+    public Part next() {
+        if (!this.hasNext()) {
+            throw new NoSuchElementException(
+                "The iterator doesn't have any more items"
+            );
+        }
+        try {
+            return multipart.getBodyPart(position.getAndIncrement());
+        } catch (final MessagingException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+}
+```
+
+Теперь можно и `Iterable`. Для скорости, воспользуемся библиотекой 
+[`cactoos`](https://github.com/yegor256/cactoos), в частности классом 
+[`IterableOf`](https://github.com/yegor256/cactoos/blob/0.49/src/main/java/org/cactoos/iterable/IterableOf.java):
+```java
+new IterableOf<>(new PartsIterator(mp))
+```
+### Почти конечный вариант c `final` везде
+```java
+import org.cactoos.iterable.IterableOf;
+
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Part;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public final class Mail {
+
+    /**
+     * Return the primary text content of the message.
+     */
+    private TextContent getText(final Part p) throws
+        MessagingException, IOException {
+        final TextContent result;
+        if (p.isMimeType("text/*")) {
+            final String s = (String)p.getContent();
+            if (p.isMimeType("text/html")) {
+                result = new HtmlTextContent(s);
+            } else {
+                result = new SimpleTextContent(s);
+            }
+        } else if (p.isMimeType("multipart/alternative")) {
+            // prefer html text over plain text
+            final Multipart mp = (Multipart)p.getContent();
+            final IterableOf<Part> parts = new IterableOf<>(
+                new PartsIterator(mp)
+            );
+            final List<TextContent> foundPlain = new ArrayList<>();
+            final List<TextContent> foundHtml = new ArrayList<>();
+            final List<TextContent> foundOthers = new ArrayList<>();
+            for (final Part bp: parts) {
+                final TextContent foundText = getText(bp);
+                if (bp.isMimeType("text/plain")) {
+                    foundPlain.add(foundText);
+                } else if (bp.isMimeType("text/html")) {
+                    foundHtml.add(foundText);
+                } else {
+                    if (!foundText.asString().isEmpty()) {
+                        foundOthers.add(foundText);
+                    }
+                }
+            }
+
+            if (!foundHtml.isEmpty()) {
+                result = foundHtml.get(0);
+            } else if (!foundOthers.isEmpty()) {
+                result = foundOthers.get(0);
+            } else if (!foundPlain.isEmpty()) {
+                result = foundPlain.get(0);
+            } else {
+                result = new SimpleTextContent("");
+            }
+        } else if (p.isMimeType("multipart/*")) {
+            final Multipart mp = (Multipart)p.getContent();
+            final IterableOf<Part> parts = new IterableOf<>(
+                new PartsIterator(mp)
+            );
+            final List<TextContent> foundTexts = new ArrayList<>();
+            for (final Part bp: parts) {
+                final TextContent s = getText(bp);
+                if (!s.asString().isEmpty()) {
+                    foundTexts.add(s);
+                }
+            }
+            if (!foundTexts.isEmpty()) {
+                result = foundTexts.get(0);
+            } else {
+                result = new SimpleTextContent("");
+            }
+        } else {
+            result = new SimpleTextContent("");
+        }
+
+        return result;
+    }
+}
+```
+Осталась одна ошибка анализатора: 
+```java
+allpublic
+Mail.getText(Mail.java:15) > private 
+```
+
+## AllPublic
+
+Мысленный эксперимент продолжается, и нам нужно, казалось бы, просто взять и 
+сделать этот метод `public`, чего сложного то? Сложно тут то, что если просто 
+сделать этот метод публичным, то обновится поведение у класса `Mail`, владеющего
+этим методом. Поэтому, как объяснялось в 
+[статье](https://www.nikialeksey.com/java/oop/2017/03/31/private-method-should-be-new-class.html):
+
+> Приватный метод - повод для нового класса
+
+Логика в методе `Mail.getText` получилась непростой, она однозначно требует 
+тестирования. Скорее всего, она может быть переиспользована в других участках 
+кода. Вынести этот код в новый класс - значит решить целых три проблемы:
+- анализатор больше не будет ругаться
+- получение текстового контента можно будет тестировать
+- получение текстового контента можно будет переипользовать
+
+Остается только выделить поведение такого класса, задеклалировать интерфейс,
+и реализовать его. Интерфейс наверняка должен быть простым, от интерфейса нам 
+требуется только метод, возвращающий `TextContent`. Или можно воспользоваться 
+поведением существующего `TextContent`, написав реализацию, которая будет 
+принимать `Part` в конструкторе.
+
+### Конечный вариант без ошибок анализатора
+
+<details>
+  <summary>Details</summary>
+
+{% highlight java %}
+public final class PartTextContent implements TextContent {
+
+    private final Unchecked<TextContent> text;
+
+    public PartTextContent(final Part p) {
+        this(new Unchecked<>(() -> {
+            final TextContent result;
+            if (p.isMimeType("text/*")) {
+                final String s = (String)p.getContent();
+                if (p.isMimeType("text/html")) {
+                    result = new HtmlTextContent(s);
+                } else {
+                    result = new SimpleTextContent(s);
+                }
+            } else if (p.isMimeType("multipart/alternative")) {
+                // prefer html text over plain text
+                final Multipart mp = (Multipart)p.getContent();
+                final IterableOf<Part> parts = new IterableOf<>(
+                    new PartsIterator(mp)
+                );
+                final List<TextContent> foundPlain = new ArrayList<>();
+                final List<TextContent> foundHtml = new ArrayList<>();
+                final List<TextContent> foundOthers = new ArrayList<>();
+                for (final Part bp: parts) {
+                    final TextContent foundText = new PartTextContent(bp);
+                    if (bp.isMimeType("text/plain")) {
+                        foundPlain.add(foundText);
+                    } else if (bp.isMimeType("text/html")) {
+                        foundHtml.add(foundText);
+                    } else {
+                        if (!foundText.asString().isEmpty()) {
+                            foundOthers.add(foundText);
+                        }
+                    }
+                }
+
+                if (!foundHtml.isEmpty()) {
+                    result = foundHtml.get(0);
+                } else if (!foundOthers.isEmpty()) {
+                    result = foundOthers.get(0);
+                } else if (!foundPlain.isEmpty()) {
+                    result = foundPlain.get(0);
+                } else {
+                    result = new SimpleTextContent("");
+                }
+            } else if (p.isMimeType("multipart/*")) {
+                final Multipart mp = (Multipart)p.getContent();
+                final IterableOf<Part> parts = new IterableOf<>(
+                    new PartsIterator(mp)
+                );
+                final List<TextContent> foundTexts = new ArrayList<>();
+                for (final Part bp: parts) {
+                    final TextContent s = new PartTextContent(bp);
+                    if (!s.asString().isEmpty()) {
+                        foundTexts.add(s);
+                    }
+                }
+                if (!foundTexts.isEmpty()) {
+                    result = foundTexts.get(0);
+                } else {
+                    result = new SimpleTextContent("");
+                }
+            } else {
+                result = new SimpleTextContent("");
+            }
+
+            return result;
+        }));
+    }
+
+    public PartTextContent(final Unchecked<TextContent> text) {
+        this.text = text;
+    }
+
+    @Override
+    public String asString() {
+        return text.value().asString();
+    }
+
+    @Override
+    public String asQuote() {
+        return text.value().asQuote();
+    }
+}
+{% endhighlight %}
+</details>
+
+Тут довольно много кода, поэтому я покажу главные изменения:
+```java
+public final class PartTextContent implements TextContent {
+
+    private final Unchecked<TextContent> text;
+
+    public PartTextContent(final Part p) {
+        this(new Unchecked<>(() -> {
+            final TextContent result;
+            if (p.isMimeType("text/*")) {
+                ...
+            } else if (p.isMimeType("multipart/alternative")) {
+                ...
+                for (final Part bp: parts) {
+                    final TextContent foundText = new PartTextContent(bp);
+                    ...
+                }
+
+                ...
+            } else if (p.isMimeType("multipart/*")) {
+                ...
+                for (final Part bp: parts) {
+                    final TextContent s = new PartTextContent(bp);
+                    ...
+                }
+                ...
+            } else {
+                ...
+            }
+
+            return result;
+        }));
+    }
+
+    public PartTextContent(final Unchecked<TextContent> text) {
+        this.text = text;
+    }
+
+    @Override
+    public String asString() {
+        return text.value().asString();
+    }
+
+    @Override
+    public String asQuote() {
+        return text.value().asQuote();
+    }
+}
+```
