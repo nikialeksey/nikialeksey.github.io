@@ -12,6 +12,23 @@
     "ru": "Опыт"
   },
   "workActivity": {
+    "intermedia": {
+      "position": {
+        "en": "Senior Android Developer",
+        "ru": "Senior Android-разработчик"
+      },
+      "unite": {
+        "description": {
+          "en": "Develop and maintain",
+          "ru": "Разработка и поддержка"
+        },
+        "appTitle": {
+          "en": "Intermedia Unite",
+          "ru": "Intermedia Unite"
+        }
+      }
+    },
+
     "mailRu": {
       "position": {
         "en": "Senior Android Developer",
