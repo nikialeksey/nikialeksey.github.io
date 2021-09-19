@@ -115,23 +115,23 @@ Mail.getText(Mail.java:13)
 Гхм... С чего бы начать?...
 
 Тут четыре типа ошибок:
-- `NullFree` - нужно писать код без использования `null` ([Почему?](https://www.yegor256.com/2014/05/13/why-null-is-bad.html))
-- `AllFinal` - нужно, чтобы везде стояло ключевое слово `final`, чтобы 
+- `NullFree` - нужно писать код без использования `null`{:.language-java}{:.highlight} ([Почему?](https://www.yegor256.com/2014/05/13/why-null-is-bad.html))
+- `AllFinal` - нужно, чтобы везде стояло ключевое слово `final`{:.language-java}{:.highlight}, чтобы 
 поддерживать иммутабельность ([Как?](https://www.yegor256.com/2016/09/07/gradients-of-immutability.html))
 - `AllPublic` - нужно, чтобы все методы и классы были с модификатором доступа 
-`public` ([Почему?](https://www.nikialeksey.com/java/oop/2017/03/31/private-method-should-be-new-class.html))
-- `NoMultipleReturn` - нужно, чтобы в методах был только один оператор `return` 
-(Почему? Потому что много операторов `return` мешают восприятию кода метода)
+`public`{:.language-java}{:.highlight} ([Почему?](https://www.nikialeksey.com/java/oop/2017/03/31/private-method-should-be-new-class.html))
+- `NoMultipleReturn` - нужно, чтобы в методах был только один оператор `return`{:.language-java}{:.highlight} 
+(Почему? Потому что много операторов `return`{:.language-java}{:.highlight} мешают восприятию кода метода)
 
 Ошибки статического анализатора нужно исправлять, иначе сборка в CI не соберется.
 Ошибок достаточно много, поэтому придется исправлять поэтапно. Обычно, проще 
 всего решать `AllFinal` ошибки. Это места, которые нужно пометить ключевым 
-словом `final`. С них и начнем.
+словом `final`{:.language-java}{:.highlight}. С них и начнем.
 
 Хотя вот прямо сейчас нужно сделать отступление. Если вы нормальный программист,
 то "Что, блин, происходит?!" уже звучит в вашей голове. Потому что для чего 
-нужно пытаться писать программу без `null`-ов - не понятно, да и возможно ли 
-это? А все методы `public` - это зачем? Ведь часто нужно сделать метод, 
+нужно пытаться писать программу без `null`{:.language-java}{:.highlight}-ов - не понятно, да и возможно ли 
+это? А все методы `public`{:.language-java}{:.highlight} - это зачем? Ведь часто нужно сделать метод, 
 необходимый только для одного конкретного класса. А также ссылочки там были на 
 [этого противоречивого господина](https://www.yegor256.com/testimonials.html). 
 Короче, далее будет еще не одно действие, после которого будет начинаться жжение
@@ -139,7 +139,8 @@ Mail.getText(Mail.java:13)
 [мысленным экспериментом](https://en.wikipedia.org/wiki/Thought_experiment).
 
 ## AllFinal 1-ый этап
-Вернемся к `final`. Где там в самом первом месте у нас `final`?
+Вернемся к `final`{:.language-java}{:.highlight}. Где там в самом первом месте 
+у нас `final`{:.language-java}{:.highlight}?
 ```java
 Mail(Mail.java:8) > textIsHtml = false
 ```
@@ -331,8 +332,8 @@ public final class Mail {
 }
 {% endhighlight %}
 </details>
-Кстати, я дополнительно расставил `final`-ы везде, где это было возможно, и у нас
-осталось всего три места, где нужно поставить `final`, но пока нельзя:
+Кстати, я дополнительно расставил `final`{:.language-java}{:.highlight}-ы везде, где это было возможно, и у нас
+осталось всего три места, где нужно поставить `final`{:.language-java}{:.highlight}, но пока нельзя:
 ```java
 TextContent text = null;
 ...
@@ -340,10 +341,10 @@ for (int i = 0; i < mp.getCount(); i++)
 ...
 for (int i = 0; i < mp.getCount(); i++)
 ```
-"В `for`-иках то зачем `final`?" - спросите вы. Там объявляется переменная — 
-индекс `int i = 0`, и она имеет возможность быть переназначенной, как, 
+"В `for`{:.language-java}{:.highlight}-иках то зачем `final`{:.language-java}{:.highlight}?" - спросите вы. 
+Там объявляется переменная—индекс `int i = 0`{:.language-java}{:.highlight}, и она имеет возможность быть переназначенной, как, 
 собственно, и происходит в блоке действия, выполняемого после каждой итерации.
-И, я уверяю вас, мы сможем избавиться от этого не `final` поля через некоторое время. Но
+И, я уверяю вас, мы сможем избавиться от этого не `final`{:.language-java}{:.highlight} поля через некоторое время. Но
 пока, перейдем к другим ошибкам. 
 
 ## NoMultipleReturn
@@ -939,6 +940,44 @@ public final class PartTextContent implements TextContent {
 вызывать конструктор рекурсивно - это уж совсем неоптимально, непроизводительно 
 и т.д. Но если немного подумать, то можно понять, что в email почти никогда нет 
 вложенных друг в друга `multipart`-ов, поэтому рекурсия не будет глубокой.
+
+Кстати, вам может показаться, что код получился громоздким (мне тоже так кажется).
+Поэтому можно выделить еще пару классов `class MultipartAlternativeTextContent implements TextContent`{:.language-java}{:.highlight} и
+`class MultipartTextContent implements TextContent`{:.language-java}{:.highlight}, 
+тогда итоговый конструктор `class PartTextContent`{:.language-java}{:.highlight}
+будет выглядеть совсем просто:
+<details>
+  <summary>Посмотреть</summary>
+{% highlight java %}
+public final class PartTextContent implements TextContent {
+    public PartTextContent(final Part p) {
+        this(new Unchecked<>(() -> {
+            final TextContent result;
+            if (p.isMimeType("text/*")) {
+                final String s = (String)p.getContent();
+                if (p.isMimeType("text/html")) {
+                    result = new HtmlTextContent(s);
+                } else {
+                    result = new SimpleTextContent(s);
+                }
+            } else if (p.isMimeType("multipart/alternative")) {
+                // prefer html text over plain text
+                final Multipart mp = (Multipart) p.getContent();
+                result = new MultipartAlternativeTextContent(mp);
+            } else if (p.isMimeType("multipart/*")) {
+                final Multipart mp = (Multipart) p.getContent();
+                result = new MultipartTextContent(mp);
+            } else {
+                result = new SimpleTextContent("");
+            }
+
+            return result;
+        }));
+    }
+    ...
+}
+{% endhighlight %}
+</details>
 
 ---
 

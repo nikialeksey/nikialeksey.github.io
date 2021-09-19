@@ -212,10 +212,6 @@ span.pagination-page {
   details {
     position: relative;
 
-    > :last-child {
-      margin-bottom: 1rem;
-    }
-
     &::before {
       width: 100%;
       height: 100%;
