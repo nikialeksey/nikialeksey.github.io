@@ -1,4 +1,8 @@
 {
+  "present": {
+    "en": "present",
+    "ru": "настоящее время"
+  },
   "positionTitle": {
     "en": "Position",
     "ru": "Должность"
@@ -25,7 +29,19 @@
         "appTitle": {
           "en": "Intermedia Unite",
           "ru": "Intermedia Unite"
+        },
+        "goal1": {
+          "en": "Optimized connection time and communication speed with the server",
+          "ru": "Оптимизировал время соединения и скорость взаимодействия с сервером"
         }
+      },
+      "goal1Title": {
+        "en": "technical blog of Intermedia",
+        "ru": "технический блог Intermedia"
+      },
+      "goal1": {
+        "en": "Write posts for the",
+        "ru": "Пишу статьи в"
       }
     },
 
@@ -42,6 +58,18 @@
         "appTitle": {
           "en": "ICQ for Android",
           "ru": "ICQ для Android"
+        },
+        "goal1": {
+          "en": "Optimized app start time up to Telegram level",
+          "ru": "Оптимизировал время старта приложения почти до уровня Telegram"
+        },
+        "goal2Title":  {
+          "en": "java Bot-SDK for ICQ",
+          "ru": "java Bot-SDK для ICQ"
+        },
+        "goal2": {
+          "en": "Improved and supported new features in the",
+          "ru": "Улучшил и поддержал новые фичи в"
         }
       }
     },
@@ -53,8 +81,8 @@
       },
       "switips": {
         "description": {
-          "en": "Develop, maintain and lead",
-          "ru": "Разработка, поддержка и техническое руководство"
+          "en": "Develop and lead",
+          "ru": "Разработка и техническое руководство"
         },
         "appTitle": {
           "en": "SWITIPS - Cashback service app",
@@ -63,8 +91,8 @@
       },
       "exoatlet": {
         "description": {
-          "en": "Develop, maintain and lead",
-          "ru": "Разработка, поддержка и техническое руководство"
+          "en": "Develop and lead",
+          "ru": "Разработка и техническое руководство"
         },
         "appTitle": {
           "en": "Exoatlet - Exoskeleton manipulation app",
@@ -86,6 +114,14 @@
         "appTitle": {
           "en": "Modulkassa - app for point of sale",
           "ru": "Modulkassa - кассовое ПО"
+        },
+        "goal1": {
+          "en": "Introduced Kotlin into the project source code",
+          "ru": "Внедрил kotlin"
+        },
+        "goal2": {
+          "en": "Implemented integration with an external payment terminal",
+          "ru": "Осуществил интеграцию с внешним платежным терминалом"
         }
       },
       "opensource": {
@@ -259,8 +295,8 @@
   },
 
   "aboutMe": {
-    "en": "I'm the one who better writes scalable, maintainable, inappropriate algorithm than optimal but not readable.\nA code maintainability is always prioritized over those of his efficiency.",
-    "ru": "Я тот, кто лучше напишет масштабируемый, поддерживаемый, тестируемый и неоптимальный алгоритм, чем оптимальный, но не читабельный. Поддерживаемость кода всегда приоритетнее его эффективности."
+    "en": "I like to take a joke :) I love TV shows about superheroes.",
+    "ru": "Люблю шутить :) Обожаю сериалы про супергероев."
   },
 
   "personalType": {

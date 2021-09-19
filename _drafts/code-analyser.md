@@ -9,16 +9,17 @@ tags:
 - code analysis
 ---
 
-Статический анализатор обычно помогает поддерживать выбранный стиль кода. Иногда
-он находит нетривиальные шаблонные проблемы. Но сегодня посмотрим на то,
-как статический анализатор заставляет менять архитектуру.
+Статический анализатор обычно помогает [поддерживать выбранный стиль кода](https://ktlint.github.io/). Иногда
+он находит [нетривиальные шаблонные проблемы](https://pmd.github.io/latest/pmd_rules_java_design.html#godclass). 
+Но сегодня посмотрим на то, как статический анализатор заставляет менять всю 
+архитектуру.
 
 ![Videoconference Call by Jack Moreh]({{ site.url }}{{ page.image }})
 
 <!--more-->
 
 Я решал задачу получения текстового контента из объекта, представляющее 
-электронное письмо. Оказывается, задача не совсем тривиальная, ведь тело письма 
+электронное письмо. Оказывается, задача непростая, ведь тело письма 
 может состоять из разных частей: вложения, html, альтернативный текст и другие
 ([RFC-2045](https://tools.ietf.org/html/rfc2045#section-5.1)). Вот ссылка на код,
 который [JakartaMail](https://en.wikipedia.org/wiki/Jakarta_Mail) любезно предложил 
@@ -79,9 +80,9 @@ public final class Mail {
     }
 }
 ```
-и запустил статический анализатор iwillfailyou:
+и запустил статический анализатор [youshallnotpass](https://youshallnotpass.dev/):
 ```java
-> Task :iwillfailyou FAILED
+> Task :youshallnotpass FAILED
 
 nullfree
 Mail.getText(Mail.java:24) > null
@@ -113,19 +114,13 @@ Mail.getText(Mail.java:13)
 Гхм... С чего бы начать?...
 
 Тут четыре типа ошибок:
-- `NullFree` - нужно писать код без использования `null` (
-[Почему?](https://www.yegor256.com/2014/05/13/why-null-is-bad.html)
-)
+- `NullFree` - нужно писать код без использования `null` ([Почему?](https://www.yegor256.com/2014/05/13/why-null-is-bad.html))
 - `AllFinal` - нужно, чтобы везде стояло ключевое слово `final`, чтобы 
-поддерживать иммутабельность (
-[Как?](https://www.yegor256.com/2016/09/07/gradients-of-immutability.html)  
-)
+поддерживать иммутабельность ([Как?](https://www.yegor256.com/2016/09/07/gradients-of-immutability.html))
 - `AllPublic` - нужно, чтобы все методы и классы были с модификатором доступа 
-`public` (
-[Почему?](https://www.nikialeksey.com/java/oop/2017/03/31/private-method-should-be-new-class.html)
-)
+`public` ([Почему?](https://www.nikialeksey.com/java/oop/2017/03/31/private-method-should-be-new-class.html))
 - `NoMultipleReturn` - нужно, чтобы в методах был только один оператор `return` 
-(Почему? Потому что много операторов `return` мешают восприятию кода)
+(Почему? Потому что много операторов `return` мешают восприятию кода метода)
 
 Ошибки статического анализатора нужно исправлять, иначе сборка в CI не соберется.
 Ошибок достаточно много, поэтому придется исправлять поэтапно. Обычно, проще 
@@ -148,8 +143,8 @@ Mail.getText(Mail.java:13)
 Mail(Mail.java:8) > textIsHtml = false
 ```
 Да, поле класса, которое будет изменено в зависимости от того, какой тип 
-текстового контента нашел алгоритм: если `text/html`, то `textIsHtml == true`, 
-если `text/[not html]`, то, соответственно, `textIsHtml == false`. Тут надо 
+текстового контента нашел алгоритм: если `text/html`, то `textIsHtml == true`{:.language-java}{:.highlight}, 
+если `text/[not html]`, то, соответственно, `textIsHtml == false`{:.language-java}{:.highlight}. Тут надо 
 объяснить, для чего это нужно, если вы не парсили почту в своих программах 
 ранее. Текстовый контент письма может быть представлен в разных форматах, чаще 
 всего это `text/html` и `text/plain`. Почтовый клиент должен выбрать наилучший
@@ -160,7 +155,7 @@ Mail(Mail.java:8) > textIsHtml = false
 оставить флажок, чтобы разработчик понимал, что это найден не `html` контент.
 
 Очевидно, если просто поставить `private final textIsHtml`{:.language-java}{:.highlight}, 
-то это не решит проблему. И вот тут на помощь приходит концепция объектов. 
+то это не решит проблему. И вот тут на помощь приходит [концепция объектов](https://en.wikipedia.org/wiki/Object-oriented_programming). 
 Задекларируем следующее поведение:
 ```java
 public interface TextContent {
@@ -276,7 +271,9 @@ public final class SimpleTextContent implements TextContent {
 Хорошо, хорошо. Как там у нас теперь будет выглядеть метод получения текстового 
 контента электронного письма?
 ### Код без внешнего флажка `textIsHtml`
-```java
+<details>
+  <summary>Посмотреть</summary>
+{% highlight java %}
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Part;
@@ -331,7 +328,8 @@ public final class Mail {
         return null;
     }
 }
-```
+{% endhighlight %}
+</details>
 Кстати, я дополнительно расставил `final`-ы везде, где это было возможно, и у нас
 осталось всего три места, где нужно поставить `final`, но пока нельзя:
 ```java
@@ -350,10 +348,10 @@ for (int i = 0; i < mp.getCount(); i++)
 ## NoMultipleReturn
 В нормальной жизни вас это бы не волновало, но
 сейчас у нас мысленный эксперимент. Помните, да? Поэтому нужно попробовать 
-обойтись одним `return`. Обычно, когда мне приходится решать подобные проблемки,
+обойтись одним `return`{:.language-java}{:.highlight}. Обычно, когда мне приходится решать подобные проблемки,
 и переделывать множественный `return` в одинарный, я поступаю следующим образом.
-Я выделяю переменную `final TextContent result;`, затем вместо каждого 
-`return value;` делаю `result = value;`:
+Я выделяю переменную `final TextContent result;`{:.language-java}{:.highlight}, затем вместо каждого 
+`return value;`{:.language-java}{:.highlight} делаю `result = value;`{:.language-java}{:.highlight}:
 ```java
 private TextContent getText(final Part p) {
     final TextContent result;
@@ -376,8 +374,8 @@ private TextContent getText(final Part p) {
 ```
 
 Сложные случаи с циклами сейчас разберем отдельно. Возьмем из двух сложных 
-циклов тот, что попроще и на нем научимся делать один `return`, да еще и 
-`final` декларацию не сломать.
+циклов тот, что попроще, и на нем научимся делать один `return`{:.language-java}{:.highlight}, да еще и 
+`final`{:.language-java}{:.highlight} декларацию не сломать.
 ```java
 } else if (p.isMimeType("multipart/*")) {
     final Multipart mp = (Multipart)p.getContent();
@@ -409,7 +407,9 @@ private TextContent getText(final Part p) {
 }
 ```
 ### Итоговый результат с одним `return`:
-```java
+<details>
+  <summary>Посмотреть</summary>
+{% highlight java %}
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Part;
@@ -482,7 +482,8 @@ public final class Mail {
         return result;
     }
 }
-```
+{% endhighlight %}
+</details>
 И текущие ошибки анализатора:
 ```java
 nullfree
@@ -513,11 +514,16 @@ Mail.getText(Mail.java:13) > private
 логики говорят, что, в случае отсутствия текстового контента в письме, можно 
 считать, что письмо просто состоит из пустой строки. Это значит, что все 
 присваивания `null`{:.language-java}{:.highlight}-ов можно заменить на `new SimpleTextContent("")`{:.language-java}{:.highlight}, а все 
-проверки на `null`{:.language-java}{:.highlight} можно заменить на `textContent.asString().isEmpty()`{:.language-java}{:.highlight}.
+проверки на `null`{:.language-java}{:.highlight} можно заменить на 
+`textContent.isEmpty()`{:.language-java}{:.highlight} (этого метода там еще нет,
+но ввести его не сложно, так как необходимая информация уже инкапсулирована в 
+классы `SimpleTextContent`, `HtmlTextContent`).
 Довольно просто!
 
 ### Код без `null`-ов
-```java
+<details>
+  <summary>Посмотреть</summary>
+{% highlight java %}
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Part;
@@ -554,7 +560,7 @@ public final class Mail {
                 } else if (bp.isMimeType("text/html")) {
                     foundHtml.add(foundText);
                 } else {
-                    if (!foundText.asString().isEmpty()) {
+                    if (!foundText.isEmpty()) {
                         foundOthers.add(foundText);
                     }
                 }
@@ -574,7 +580,7 @@ public final class Mail {
             final List<TextContent> foundTexts = new ArrayList<>();
             for (int i = 0; i < mp.getCount(); i++) {
                 final TextContent s = getText(mp.getBodyPart(i));
-                if (!s.asString().isEmpty()) {
+                if (!s.isEmpty()) {
                     foundTexts.add(s);
                 }
             }
@@ -590,7 +596,8 @@ public final class Mail {
         return result;
     }
 }
-```
+{% endhighlight %}
+</details>
 Однако ошибки анализатора все еще присутствуют:
 ```java
 allfinal
@@ -675,7 +682,9 @@ public final class PartsIterator implements Iterator<Part> {
 new IterableOf<>(new PartsIterator(mp))
 ```
 ### Почти конечный вариант c `final` везде
-```java
+<details>
+  <summary>Посмотреть</summary>
+{% highlight java %}
 import org.cactoos.iterable.IterableOf;
 
 import javax.mail.MessagingException;
@@ -755,7 +764,8 @@ public final class Mail {
         return result;
     }
 }
-```
+{% endhighlight %}
+</details>
 Осталась одна ошибка анализатора: 
 ```java
 allpublic
@@ -785,11 +795,10 @@ Mail.getText(Mail.java:15) > private
 поведением существующего `TextContent`, написав реализацию, которая будет 
 принимать `Part` в конструкторе.
 
-### Конечный вариант без ошибок анализатора
+## Конечный вариант без ошибок анализатора
 
 <details>
-  <summary>Details</summary>
-
+  <summary>Посмотреть</summary>
 {% highlight java %}
 public final class PartTextContent implements TextContent {
 
@@ -874,11 +883,16 @@ public final class PartTextContent implements TextContent {
     public String asQuote() {
         return text.value().asQuote();
     }
+
+    @Override
+    public boolean isEmpty() {
+        return text.value().isEmpty();
+    }
 }
 {% endhighlight %}
 </details>
 
-Тут довольно много кода, поэтому я покажу главные изменения:
+Там довольно много кода, но я выделю главные изменения:
 ```java
 public final class PartTextContent implements TextContent {
 
@@ -916,14 +930,32 @@ public final class PartTextContent implements TextContent {
         this.text = text;
     }
 
-    @Override
-    public String asString() {
-        return text.value().asString();
-    }
-
-    @Override
-    public String asQuote() {
-        return text.value().asQuote();
-    }
+    ...
 }
 ```
+Видите, да? Там конструктор вызывается в конструкторе. Вы можете подумать, что 
+это такой особый вид ректальных неудовольствий (или удовольствий). Потому что 
+вызывать конструктор рекурсивно - это уж совсем неоптимально, непроизводительно 
+и т.д. Но если немного подумать, то можно понять, что в email почти никогда нет 
+вложенных друг в друга `multipart`-ов, поэтому рекурсия не будет глубокой.
+
+---
+
+Мысленный эксперимент закончился. Мы просто попробовали переписать код так, 
+чтобы в нем все переменные были `final`{:.language-java}{:.highlight}, чтобы там не использовались `null`{:.language-java}{:.highlight}, чтобы
+был только один `return`{:.language-java}{:.highlight} и чтобы все методы были `public`{:.language-java}{:.highlight}. На самом деле в 
+анализаторе [`youshallnotpass`](https://youshallnotpass.dev) есть еще несколько 
+правил. Например, не использовать getter-ы/setter-ы, не использовать ключевое 
+слово `static`{:.language-java}{:.highlight}. И вы, может быть, удивитесь, но
+оказывается можно писать код, который соответствует всем этим правилам, и такой 
+код даже будет решать бизнес задачи. Я не буду утверждать, что код, 
+соответствующий таким правилам, лучше или хуже того, что мы привыкли видеть
+каждый день (хотя уже есть некоторые исследования на тему 
+[использования null](https://ieeexplore.ieee.org/abstract/document/9392959)).
+Это был всего лишь мысленный эксперимент, где один статический анализатор 
+заставил поменять архитектуру. Из небольшого метода у нас в итоге получилось 
+несколько классов. Нам пришлось вникнуть в предметную область email-ов, 
+и выполнить некоторую декомпозицию исходя из задач бизнеса. Теперь везде в коде, 
+где нам необходимо будет добывать текст из письма, мы будем просто использовать
+интерфейс `TextContent` с заданным поведением, а не приватный метод `getText`,
+который будет сложно замокать в тестах.
