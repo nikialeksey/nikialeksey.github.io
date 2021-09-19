@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Analyser"
+title: "Статический анализатор, который поменяет вам архитектуру"
 lang: ru
-image: /assets/imgs/skeletons.jpg
-description: ""
+image: /assets/imgs/tribore.jpeg
+description: "Про бескомпромиссный статический анализатор кода"
 tags:
 - oop
-- code analysis
+- static analysis
 ---
 
 Статический анализатор обычно помогает [поддерживать выбранный стиль кода](https://ktlint.github.io/). Иногда
@@ -14,7 +14,8 @@ tags:
 Но сегодня посмотрим на то, как статический анализатор заставляет менять всю 
 архитектуру.
 
-![Videoconference Call by Jack Moreh]({{ site.url }}{{ page.image }})
+![Tribore Menendez from Final Space]({{ site.url }}{{ page.image }})
+_Tribore Menendez from [Final Space](https://www.imdb.com/title/tt6317068/)_
 
 <!--more-->
 
