@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Статический анализатор, который поменяет вам архитектуру"
+title: "Статический анализатор, который изменит вашу архитектуру"
 lang: ru
 image: /assets/imgs/tribore.jpeg
 description: "Про бескомпромиссный статический анализатор кода"
@@ -941,7 +941,7 @@ public final class PartTextContent implements TextContent {
 и т.д. Но если немного подумать, то можно понять, что в email почти никогда нет 
 вложенных друг в друга `multipart`-ов, поэтому рекурсия не будет глубокой.
 
-Кстати, вам может показаться, что код получился громоздким (мне тоже так кажется).
+Кстати, вам может показаться, что код конструктора получился громоздким (мне тоже так кажется).
 Поэтому можно выделить еще пару классов `class MultipartAlternativeTextContent implements TextContent`{:.language-java}{:.highlight} и
 `class MultipartTextContent implements TextContent`{:.language-java}{:.highlight}, 
 тогда итоговый конструктор `class PartTextContent`{:.language-java}{:.highlight}
@@ -998,4 +998,4 @@ public final class PartTextContent implements TextContent {
 и выполнить некоторую декомпозицию исходя из задач бизнеса. Теперь везде в коде, 
 где нам необходимо будет добывать текст из письма, мы будем просто использовать
 интерфейс `TextContent` с заданным поведением, а не приватный метод `getText`,
-который будет сложно замокать в тестах.
+который будет довольно сложно замокать в тестах.
