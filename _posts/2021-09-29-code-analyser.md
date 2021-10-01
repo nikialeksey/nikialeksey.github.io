@@ -506,7 +506,7 @@ Mail.getText(Mail.java:13) > private
 ## NullFree
 Так так. `null`{:.language-java}{:.highlight} используется в этом коде для обозначения того, что текстовый 
 контент не найден. Обычно, в таких ситуациях есть несколько вариантов:
-- бросать исключение, если текстовый контент не найден (тогда прийдется 
+- бросать исключение, если текстовый контент не найден (тогда придется 
 отлавливать его вместо проверки на `null`{:.language-java}{:.highlight})
 - сделать еще одну реализацию `interface TextContent`{:.language-java}{:.highlight} для обозначения отсутствия
 текста
@@ -935,11 +935,34 @@ public final class PartTextContent implements TextContent {
     ...
 }
 ```
-Видите, да? Там конструктор вызывается в конструкторе. Вы можете подумать, что 
-это такой особый вид ректальных неудовольствий (или удовольствий). Потому что 
+Видите, да? Там конструктор `PartTextContent` вызывается в конструкторе 
+`PartTextContent`. Вы можете подумать, что 
+это такой особый вид ~~ректальных неудовольствий~~ тонкого искусства. Потому что 
 вызывать конструктор рекурсивно - это уж совсем неоптимально, непроизводительно 
 и т.д. Но если немного подумать, то можно понять, что в email почти никогда нет 
-вложенных друг в друга `multipart`-ов, поэтому рекурсия не будет глубокой.
+вложенных друг в друга `multipart`-ов, поэтому рекурсия не будет глубокой. Если
+вы переживаете, что при вызове методов `asString` или `isEmpty` будет каждый раз 
+создаваться новая гора объектов, то не стоит - там все достаточно легко и просто
+закешировать с помощью декоратора 
+[`Solid`](https://github.com/yegor256/cactoos/blob/0.49/src/main/java/org/cactoos/scalar/Solid.java) 
+для поля `final Unchecked<TextContent> text`{:.language-java}{:.highlight}:
+
+<details>
+  <summary>Посмотреть</summary>
+{% highlight java %}
+public PartTextContent(final Part p) {
+    this(
+        new Unchecked<>(
+            new Solid<>(() -> {
+                final TextContent result;
+                ...
+                return result;
+            })
+        )
+    );
+}
+{% endhighlight %}
+</details>
 
 Кстати, вам может показаться, что код конструктора получился громоздким (мне тоже так кажется).
 Поэтому можно выделить еще пару классов `class MultipartAlternativeTextContent implements TextContent`{:.language-java}{:.highlight} и
