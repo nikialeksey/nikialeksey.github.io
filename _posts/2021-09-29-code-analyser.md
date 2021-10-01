@@ -1002,6 +1002,9 @@ public final class PartTextContent implements TextContent {
 {% endhighlight %}
 </details>
 
+Исходники всех созданных классов в конечном варианте можно посмотреть 
+[тут](https://github.com/nikialeksey/code-analyser-post-attachments).
+
 ---
 
 Мысленный эксперимент закончился. Мы просто попробовали переписать код так, 
