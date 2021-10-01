@@ -81,7 +81,9 @@ public final class Mail {
     }
 }
 ```
-и запустил статический анализатор [youshallnotpass](https://youshallnotpass.dev/):
+и запустил статический анализатор [youshallnotpass](https://youshallnotpass.dev/)
+(этот инструмент написан мной, его цель - удостовериться в некоторой степени в том,
+что код использует подход [ElegantObjects](https://www.elegantobjects.org/)):
 ```java
 > Task :youshallnotpass FAILED
 
@@ -121,7 +123,11 @@ Mail.getText(Mail.java:13)
 - `AllPublic` - нужно, чтобы все методы и классы были с модификатором доступа 
 `public`{:.language-java}{:.highlight} ([Почему?](https://www.nikialeksey.com/java/oop/2017/03/31/private-method-should-be-new-class.html))
 - `NoMultipleReturn` - нужно, чтобы в методах был только один оператор `return`{:.language-java}{:.highlight} 
-(Почему? Потому что много операторов `return`{:.language-java}{:.highlight} мешают восприятию кода метода)
+(Почему? Потому что много операторов `return`{:.language-java}{:.highlight} 
+мешают восприятию кода метода. Это не моя мысль, во многих статических 
+анализаторах [присутствуют](https://rules.sonarsource.com/java/RSPEC-1142) 
+ограничения на количество управляющих операторов в методах, я лишь сделал 
+это ограничение бескомпромиссным.)
 
 Ошибки статического анализатора нужно исправлять, иначе сборка в CI не соберется.
 Ошибок достаточно много, поэтому придется исправлять поэтапно. Обычно, проще 
@@ -133,7 +139,8 @@ Mail.getText(Mail.java:13)
 нужно пытаться писать программу без `null`{:.language-java}{:.highlight}-ов - не понятно, да и возможно ли 
 это? А все методы `public`{:.language-java}{:.highlight} - это зачем? Ведь часто нужно сделать метод, 
 необходимый только для одного конкретного класса. А также ссылочки там были на 
-[этого противоречивого господина](https://www.yegor256.com/testimonials.html). 
+[этого противоречивого господина](https://www.yegor256.com/testimonials.html) и его
+сомнительный подход [ElegantObjects](https://www.elegantobjects.org/). 
 Короче, далее будет еще не одно действие, после которого будет начинаться жжение
 под копчиком. Поэтому предлагаю считать все происходящее в этой статье 
 [мысленным экспериментом](https://en.wikipedia.org/wiki/Thought_experiment).
