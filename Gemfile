@@ -9,6 +9,7 @@ gem "jekyll-seo-tag", "2.7.1"
 gem "minima", "2.1.0"
 gem "jekyll-paginate", "1.1.0"
 gem "jemoji", "0.12.0"
+gem "jekyll-feed", "0.15.1"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
