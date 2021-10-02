@@ -7,7 +7,7 @@ layout: none
     <title>{{ site.name | xml_escape }}</title>
     <description>{{ site.description | xml_escape }}</description>
     <link>{{ site.url }}</link>
-    {% for post in site.posts limit:10 %}
+    {% for post in site.posts limit %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         <description>{{ post.description | xml_escape }}</description>
