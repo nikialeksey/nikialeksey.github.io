@@ -2,7 +2,7 @@
 layout: post
 title: "Моки испортят ваши тесты"
 lang: ru
-image: /assets/imgs/ship.jpg
+image: /assets/imgs/mocks-are-bad/title.png
 description: "Почему популярные mocking-фреймврорки портят ваши тесты, и как можно писать тесты без моков."
 tags: 
   - testing
@@ -14,7 +14,7 @@ tags:
 [unit-тестов](https://en.wikipedia.org/wiki/Unit_testing)? Если это так, то я знаю, как сделать ваши тесты качественнее - 
 никогда не используйте моки! 
 
-![Ship by Greg Montani]({{ site.url }}{{ page.image }})
+![Wheel meme]({{ site.url }}{{ page.image }})
 
 <!--more-->
 
@@ -145,3 +145,12 @@ public void updateName() {
 Фейки позволяют сосредоточиться во время написания тестов на поведении объекта, они не 
 зависят от реализации, фейки быстрее, поскольку там нет рефлексии, тесты на фейках легче читать и понимать, 
 что именно тестируется, какие именно входные данные и как узнать об изменениях в поведении. 
+
+---
+Похожие мысли:
+- [When Writing Unit Tests, Don’t Use Mocks][when-writing-unit-tests-dont-use-mocks] 
+by Seth Ammons
+- [Mocking is a Code Smell][mocking-is-a-code-smell] by Eric Elliott
+
+[when-writing-unit-tests-dont-use-mocks]: https://sendgrid.com/blog/when-writing-unit-tests-dont-use-mocks/
+[mocking-is-a-code-smell]: https://medium.com/javascript-scene/mocking-is-a-code-smell-944a70c90a6a
