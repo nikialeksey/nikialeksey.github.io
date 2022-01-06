@@ -15,8 +15,8 @@ tags:
 2. Проверил опубликованный плагин вручную на тестовом проекте
 3. Нашел ошибку/доработал, увеличил версию `n=n+1`, затем снова пункт 1
 
-Такой вот PDD (Publish Driven Development). Сегодня поговорим о том, как можно
-эффективно и автоматически тестировать gradle плагины.
+Такой вот PDD (Publish Driven Development). Сегодня поговорим о том, как писать
+эффективные тесты на собственные gradle плагины.
 
 ![Drake Yes/No meme]({{ site.url }}{{ page.image }})
 <!--more-->
@@ -184,9 +184,7 @@ jobs:
 Пожалуй, на этом можно закончить. Описанные подходы по тестированию gradle 
 плагинов я успешно применяю в тестировании своих небольших проектах, исходники
 которых вы можете найти на GitHub: 
-[arspell][arspell-github], [porflavor][porflavor-github]. После публикации 
-плагина, проверенного таким способом, можно применять его сразу без 
-дополнительных ручных проверок.
+[arspell][arspell-github], [porflavor][porflavor-github]. 
 
 [plugins-gradle]: https://plugins.gradle.org
 [local-repositories-cases]: https://docs.gradle.org/7.3.3/userguide/declaring_repositories.html#sec:case-for-maven-local
