@@ -110,12 +110,21 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: $grey-color;
-  border-left: 4px solid $grey-color-light;
-  padding-left: $spacing-unit / 2;
-  @include relative-font-size(1.125);
-  letter-spacing: -1px;
-  font-style: italic;
+  color: $text-color-inverse;
+  padding: $spacing-unit / 2;
+  @include relative-font-size(1.25);
+  background: $brand-light;
+  border-radius: 10px;
+
+  a {
+    color: $accent-light;
+    &:visited {
+      color: $accent-light;
+    }
+    &:hover {
+      color: $accent-light;
+    }
+  }
 
   > :last-child {
     margin-bottom: 0;

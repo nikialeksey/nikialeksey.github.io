@@ -92,7 +92,8 @@ class FakeEmail implements Email {
 ```
 Этот объект можно использовать в тестах, он не использует сеть, не использует базу данных, не майнит крипту... Более
 того, этот объект можно использовать в коде, ведь он полноценный, и программа будет работать, если все реализации 
-`Email`{:.language-java}{:.highlight} заменить на `FakeEmail`{:.language-java}{:.highlight}. Объекты таких классов я называю фейками, и они помогают тестировать другие объекты,
+`Email`{:.language-java}{:.highlight} заменить на `FakeEmail`{:.language-java}{:.highlight}. 
+Объекты таких классов я называю фейками, и они помогают тестировать другие объекты,
 проверяя поведение, а не реализацию.
 
 ## Еще пример
@@ -118,9 +119,16 @@ public void updateName() {
     ).write(ArgumentMatchers.any(String.class));
 }
 ```
-Видите? Тут пришлось использовать `any`{:.language-java}{:.highlight}, потому что однозначно не ясно, как `FilterRepository`{:.language-java}{:.highlight} обновляет `predicate` в
+Видите? Тут пришлось использовать `any`{:.language-java}{:.highlight}, потому что 
+однозначно не ясно, как `FilterRepository`{:.language-java}{:.highlight} обновляет `predicate` в
 облачном хранилище, или же эта часть подвержена частым изменениям. И снова, тестируется то, как `FilterRepository`{:.language-java}{:.highlight} 
-взаимодействует со своими зависимостями. Однако, даже в этом случае возможно тестировать поведение объекта:
+взаимодействует со своими зависимостями. 
+
+> Есть антипаттерн - [TTDD][ttdd] (Tautological Test Driven Development), он как
+раз описывает проблему повторения реализации в тестах. То есть, используя моки,
+чаще всего у вас будут Tautological тесты.
+
+Однако, даже в этом случае возможно тестировать поведение объекта:
 ```java
 @Test
 public void updateName() {
@@ -152,5 +160,6 @@ public void updateName() {
 by Seth Ammons
 - [Mocking is a Code Smell][mocking-is-a-code-smell] by Eric Elliott
 
+[ttdd]: https://fabiopereira.me/blog/2010/05/27/ttdd-tautological-test-driven-development-anti-pattern/
 [when-writing-unit-tests-dont-use-mocks]: https://sendgrid.com/blog/when-writing-unit-tests-dont-use-mocks/
 [mocking-is-a-code-smell]: https://medium.com/javascript-scene/mocking-is-a-code-smell-944a70c90a6a
