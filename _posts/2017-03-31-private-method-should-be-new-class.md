@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-deprecated
 title:  "Приватный метод - повод для нового класса"
 categories: java oop
 lang: ru_RU

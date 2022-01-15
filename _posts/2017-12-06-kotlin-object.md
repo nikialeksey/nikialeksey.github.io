@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-deprecated
 title:  "Kotlin - это плохо. Object keyword"
 image: /assets/imgs/security-light.jpg
 lang: ru_RU

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-deprecated
 title:  "Kotlin - это плохо. Расширения - синтаксический сахар над Utility классами"
 image: /assets/imgs/steps-to-down.jpg
 lang: ru_RU

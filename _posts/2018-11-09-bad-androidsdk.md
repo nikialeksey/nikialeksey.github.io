@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-deprecated
 title:  "Плохой Android SDK"
 image: /assets/imgs/chirita-the-chicken.jpg
 lang: ru_RU

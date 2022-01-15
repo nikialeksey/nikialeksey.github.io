@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-deprecated
 title: "Мой нелюбимый Git коммит"
 lang: ru
 image: /assets/imgs/skeletons.jpg

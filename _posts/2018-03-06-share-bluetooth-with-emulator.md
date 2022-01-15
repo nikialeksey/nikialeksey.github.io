@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-deprecated
 title: "Подключение Bluetooth-устройств к Android эмулятору"
 image: /assets/imgs/tunnel.jpg
 description: "Разбираемся, как сэкономить время при разработке Android приложения с Bluetooth переферией"

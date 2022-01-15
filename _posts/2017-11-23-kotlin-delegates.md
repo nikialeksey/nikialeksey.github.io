@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-deprecated
 title:  "Kotlin - это плохо. Делегаты"
 image: /assets/imgs/hard-work.jpg
 lang: ru_RU

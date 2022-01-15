@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-deprecated
 title: "Моки испортят ваши тесты"
 lang: ru
 image: /assets/imgs/mocks-are-bad/title.png

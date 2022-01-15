@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-deprecated
 title: "Короче, нужно короче"
 lang: ru
 image: /assets/imgs/phone-line-towers.jpg

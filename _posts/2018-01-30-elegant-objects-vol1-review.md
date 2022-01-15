@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-deprecated
 title:  "Ревью Elegant Objects vol.1"
 image: /assets/imgs/seeking-the-answer.jpg
 lang: ru_RU
