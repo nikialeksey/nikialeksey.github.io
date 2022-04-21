@@ -4,7 +4,7 @@ description: >
   Blog about Java programming, clean code and Android development
 lang: ru_RU
 baseurl: ""
-url: "https://nikialeksey.github.io"
+url: "https://devdesign.pro"
 excerpt_separator: <!--more-->
 paginate: 4
 paginate_path: "/page-:num/"
