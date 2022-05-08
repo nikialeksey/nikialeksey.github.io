@@ -23,8 +23,8 @@
       },
       "unite": {
         "description": {
-          "en": "Develop and maintain",
-          "ru": "Разработка и поддержка"
+          "en": "Work on",
+          "ru": "Работаю над"
         },
         "appTitle": {
           "en": "Intermedia Unite",
@@ -33,6 +33,10 @@
         "goal1": {
           "en": "Optimized connection time and communication speed with the server",
           "ru": "Оптимизировал время соединения и скорость взаимодействия с сервером"
+        },
+        "goal2": {
+          "en": "Implemented an analytics system to monitor application performance",
+          "ru": "Внедрил систему аналитики для слежения за производительностью приложения"
         }
       },
       "goal1Title": {
@@ -52,8 +56,8 @@
       },
       "icq": {
         "description": {
-          "en": "Develop and maintain",
-          "ru": "Разработка и поддержка"
+          "en": "Worked on",
+          "ru": "Работал над"
         },
         "appTitle": {
           "en": "ICQ for Android",
@@ -81,8 +85,8 @@
       },
       "switips": {
         "description": {
-          "en": "Develop and lead",
-          "ru": "Разработка и техническое руководство"
+          "en": "Worked on",
+          "ru": "Работал над"
         },
         "appTitle": {
           "en": "SWITIPS - Cashback service app",
@@ -91,13 +95,17 @@
       },
       "exoatlet": {
         "description": {
-          "en": "Develop and lead",
-          "ru": "Разработка и техническое руководство"
+          "en": "Worked on",
+          "ru": "Работал над"
         },
         "appTitle": {
           "en": "Exoatlet - Exoskeleton manipulation app",
           "ru": "Exoatlet - Приложение для управления экзоскелетом"
         }
+      },
+      "goal1": {
+        "en": "Learned how to properly decompose tasks and meet deadlines",
+        "ru": "Научился правильно декомпозировать задачи и укладываться в сроки"
       }
     },
 
@@ -108,8 +116,8 @@
       },
       "modulkassa": {
         "description": {
-          "en": "Develop and maintain",
-          "ru": "Разработка и поддержка"
+          "en": "Worked on",
+          "ru": "Разработал над"
         },
         "appTitle": {
           "en": "Modulkassa - app for point of sale",
@@ -117,7 +125,7 @@
         },
         "goal1": {
           "en": "Introduced Kotlin into the project source code",
-          "ru": "Внедрил kotlin"
+          "ru": "Внедрил kotlin в проект"
         },
         "goal2": {
           "en": "Implemented integration with an external payment terminal",
@@ -152,8 +160,8 @@
       },
       "iretail": {
         "description": {
-          "en": "Develop and maintain",
-          "ru": "Разработка и поддержка"
+          "en": "Worked on",
+          "ru": "Работал над"
         },
         "appTitle": {
           "en": "iRetail - app for point of sale",
