@@ -4,7 +4,7 @@
   <div class="left-column">
     <div class="block">
       <p class="title">{{ strings.positionTitle[page.lang] }}</p>
-      <p>{{ strings.position[page.lang] }} (<a href="https://time.is/UTC+7">UTC+7</a>)
+      <p>{{ strings.position[page.lang] }} (<a href="https://time.is/UTC+4">UTC+4</a>)
     </div>
 
     <div class="block">
@@ -110,15 +110,46 @@
     </div>
 
     <div class="block">
-      <p class="title">{{ strings.education.title[page.lang] }}</p>
+      <p class="title">{{ strings.publications.title[page.lang] }}</p>
+
       <p>
         <span class="bio-title">
-          <span>{{ strings.education.astu.title[page.lang] }}</span>
-          <span>2011 - 2015</span>
+          <span>Habr</span>
+          <span>01/2022</span>
         </span>
-        {{ strings.education.astu.degree[page.lang] }},
-        <a href="https://www.altstu.ru/sveden/oop/0531/description/">{{ strings.education.astu.faculty[page.lang] }}</a><br>
-        {{ strings.education.astu.gpa[page.lang] }}
+        <a href="https://habr.com/ru/post/599429/">{{ strings.publications.howToTestGradlePlugins[page.lang] }}</a>
+      </p>
+
+      <p>
+        <span class="bio-title">
+          <span>Intermedia tech blog</span>
+          <span>11/2021</span>
+        </span>
+        <a href="https://intermedia-net.github.io/android/mobile/translations/">{{ strings.publications.translationsPart1[page.lang] }}</a>
+      </p>
+
+      <p>
+        <span class="bio-title">
+          <span>Intermedia tech blog</span>
+          <span>11/2021</span>
+        </span>
+        <a href="https://intermedia-net.github.io/android/mobile/printcoverage/">{{ strings.publications.printcoverage[page.lang] }}</a>
+      </p>
+
+      <p>
+        <span class="bio-title">
+          <span>Intermedia tech blog</span>
+          <span>07/2021</span>
+        </span>
+        <a href="https://intermedia-net.github.io/android/mobile/incorrect-stacktrace/">{{ strings.publications.incorrectStacktrace[page.lang] }}</a>
+      </p>
+
+      <p>
+        <span class="bio-title">
+          <span>Intermedia tech blog</span>
+          <span>06/2021</span>
+        </span>
+        <a href="https://intermedia-net.github.io/android/mobile/webrtc-buildscript/">{{ strings.publications.webrtcBuildscript[page.lang] }}</a>
       </p>
     </div>
 
@@ -126,6 +157,12 @@
       <p class="title">{{ strings.personalProjectsTitle[page.lang] }}</p>
 
       <p>
+        <span class="bio-title">
+          <span>Translations <img src="https://img.shields.io/github/stars/intermedia-net/translations?style=social"></span>
+          <span>2021</span>
+        </span>
+        <a href="https://github.com/intermedia-net/translations">Translations gradle plugin</a>  automates work with lokalise translations in Android application sources.
+
         <span class="bio-title">
           <span>jpkgchanger <img src="https://img.shields.io/github/stars/intermedia-net/jpkgchanger?style=social"/></span>
           <span>2021</span>
@@ -195,6 +232,19 @@
         <a href="http://neerc.secna.ru/2013/ws_2013.htm">{{ strings.achievements.acmIcpc.description[page.lang] }}</a>
         <a href="https://icpc.baylor.edu/">{{ strings.achievements.acmIcpc.whatIs[page.lang] }}</a>
 
+      </p>
+    </div>
+
+    <div class="block">
+      <p class="title">{{ strings.education.title[page.lang] }}</p>
+      <p>
+        <span class="bio-title">
+          <span>{{ strings.education.astu.title[page.lang] }}</span>
+          <span>2011 - 2015</span>
+        </span>
+        {{ strings.education.astu.degree[page.lang] }},
+        <a href="https://www.altstu.ru/sveden/oop/0531/description/">{{ strings.education.astu.faculty[page.lang] }}</a><br>
+        {{ strings.education.astu.gpa[page.lang] }}
       </p>
     </div>
 

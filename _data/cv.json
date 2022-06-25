@@ -195,6 +195,32 @@
       "ru": "Оптимизация процесса разработки"
     }
   },
+  "publications": {
+    "title": {
+      "en": "Publications",
+      "ru": "Статьи"
+    },
+    "howToTestGradlePlugins": {
+      "en": "Как тестировать gradle-плагины [ru]",
+      "ru": "Как тестировать gradle-плагины [ru]"
+    },
+    "translationsPart1": {
+      "en": "Localization Automation with Lokalise platform. Part 1 [en]",
+      "ru": "Localization Automation with Lokalise platform. Part 1 [en]"
+    },
+    "printcoverage": {
+      "en": "Unit Test Coverage Enhancements for Azure DevOps Pull Requests [en]",
+      "ru": "Unit Test Coverage Enhancements for Azure DevOps Pull Requests [en]"
+    },
+    "incorrectStacktrace": {
+      "en": "Chasing the wrong Android app stacktrace in Crashlytics [en]",
+      "ru": "Chasing the wrong Android app stacktrace in Crashlytics [en]"
+    },
+    "webrtcBuildscript": {
+      "en": "Resolving WebRTC compatibility issues between multiple dependencies [en]",
+      "ru": "Resolving WebRTC compatibility issues between multiple dependencies [en]"
+    }
+  },
   "education": {
     "title": {
       "en": "Education",
