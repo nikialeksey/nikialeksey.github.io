@@ -23,20 +23,24 @@
       },
       "unite": {
         "description": {
-          "en": "Work on",
-          "ru": "Работаю над"
+          "en": "Lead core team on",
+          "ru": "Возглавлял core команду"
         },
         "appTitle": {
           "en": "Intermedia Unite",
           "ru": "Intermedia Unite"
         },
         "goal1": {
+          "en": "Hired and mentored new tech stuff",
+          "ru": "Нанимал и менторил новых технических специалистов"
+        },
+        "goal2": {
           "en": "Optimized connection time and communication speed with the server",
           "ru": "Оптимизировал время соединения и скорость взаимодействия с сервером"
         },
-        "goal2": {
-          "en": "Implemented an analytics system to monitor application performance",
-          "ru": "Внедрил систему аналитики для слежения за производительностью приложения"
+        "goal3": {
+          "en": "Implemented an analytics system to monitor application performance and quality",
+          "ru": "Внедрил систему аналитики для слежения за производительностью и качеством приложения"
         }
       },
       "goal1Title": {
@@ -199,6 +203,10 @@
     "title": {
       "en": "Publications",
       "ru": "Статьи"
+    },
+    "stacktraceErrorFromProduction": {
+      "en": "Ошибка в stacktrace из продакшена [ru]",
+      "ru": "Ошибка в stacktrace из продакшена [ru]"
     },
     "howToTestGradlePlugins": {
       "en": "Как тестировать gradle-плагины [ru]",
@@ -363,8 +371,8 @@
       },
 
       "level": {
-        "en": "Pre-Intermediate",
-        "ru": "на уровне рабочей переписки"
+        "en": "Can conduct a technical interview with an English-speaking candidate",
+        "ru": "Могу провести техническое собеседование с англоговорящим кандидатом"
       }
     }
   },
