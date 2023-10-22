@@ -208,7 +208,9 @@ span.pagination-page {
   p ~ h2 {
     padding-top: $spacing-unit;
   }
+}
 
+.post-content, .cv-content {
   details {
     position: relative;
 
@@ -223,22 +225,22 @@ span.pagination-page {
     }
 
     summary {
-        display: block;
-        position: relative;
-        cursor: pointer;
-        padding-left: 1em;
-        color: $brand-color;
+      display: block;
+      position: relative;
+      cursor: pointer;
+      padding-left: 1em;
+      color: $brand-color;
 
-        &::after {
-          position: absolute;
-          left: 0;
-          content: '+';
-          color: $post-font-color;
-        }
+      &::after {
+        position: absolute;
+        left: 0;
+        content: '+';
+        color: $post-font-color;
+      }
 
-        &::-webkit-details-marker {
-          display: none;
-        }
+      &::-webkit-details-marker {
+        display: none;
+      }
     }
   }
   details[open] {
