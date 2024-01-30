@@ -35,8 +35,8 @@
           "ru": "Нанимал и менторил новых технических специалистов"
         },
         "goal2": {
-          "en": "Optimized connection time and communication speed with the server",
-          "ru": "Оптимизировал время соединения и скорость взаимодействия с сервером"
+          "en": "Optimized connection time and communication speed with the server (Redevelop XMPP connection process)",
+          "ru": "Оптимизировал время соединения и скорость взаимодействия с сервером (Переработал полностью процесс коннекта XMPP)"
         },
         "goal3": {
           "en": "Implemented an analytics system to monitor application performance and quality",
