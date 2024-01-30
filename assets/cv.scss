@@ -108,3 +108,19 @@
     margin-left: 0.2em;
   }
 }
+
+details summary {
+  display: none;
+}
+
+@media print {
+  .social-media-list,
+  .translations,
+  details:not([open]),
+  details[open] summary,
+  .cv-content .block > .title::before,
+  footer {
+    display: none;
+  }
+  .cv-content { width:100%; }
+}
