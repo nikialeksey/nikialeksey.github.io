@@ -122,5 +122,10 @@ details summary {
   footer {
     display: none;
   }
+
   .cv-content { width:100%; }
+
+  .cv-content .right-column .block {
+    break-inside: avoid;
+  }
 }
