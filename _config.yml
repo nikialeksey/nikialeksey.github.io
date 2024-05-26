@@ -1,10 +1,10 @@
 title: Alexey Nikitin
 email: nikialeksey@gmail.com
 description: >
-  Blog about Java programming, clean code and Android development
+  Blog about Kotlin programming, clean code and Android development
 lang: ru_RU
 baseurl: ""
-url: "https://devdesign.pro"
+url: "https://alexeycode.com"
 excerpt_separator: <!--more-->
 paginate: 4
 paginate_path: "/page-:num/"
