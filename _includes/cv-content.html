@@ -3,13 +3,9 @@
 
   <div class="left-column">
     <div class="block">
-      <p class="title">{{ strings.positionTitle[page.lang] }}</p>
-      <p>{{ strings.position[page.lang] }} (<a href="https://time.is/UTC+4">UTC+4</a>)
-    </div>
-
-    <div class="block">
       <p class="title">{{ strings.aboutMeTitle[page.lang] }}</p>
-      <p>
+      <p style="display: flex;">
+        <img src="{{ page.image }}" alt="Profile avatar" style="width: 140px; height: 140px; margin-right: 8px">
         {{ strings.aboutMe[page.lang] }}
       </p>
       <p>
@@ -17,7 +13,7 @@
       </p>
     </div>
 
-    <div class="block">
+    <div class="block experience">
       <p class="title">{{ strings.experienceTitle[page.lang] }}</p>
       <p>
         <span class="bio-title">
@@ -92,7 +88,7 @@
       </p>
     </div>
 
-    <div class="block">
+    <div class="block talks">
       <p class="title">{{ strings.talks.title[page.lang] }}</p>
 
       <p>
@@ -120,7 +116,7 @@
       </p>
     </div>
 
-    <div class="block">
+    <div class="block publications">
       <p class="title">{{ strings.publications.title[page.lang] }}</p>
 
       <p>
@@ -172,7 +168,7 @@
       </p>
     </div>
 
-    <div class="block">
+    <div class="block projects">
       <p class="title">{{ strings.personalProjectsTitle[page.lang] }}</p>
 
       <p>
@@ -220,7 +216,7 @@
       </p>
     </div>
 
-    <div class="block">
+    <div class="block achievements">
       <p class="title">{{ strings.achievementsTitle[page.lang] }}</p>
 
       <p>
@@ -254,7 +250,7 @@
       </p>
     </div>
 
-    <div class="block">
+    <div class="block education">
       <p class="title">{{ strings.education.title[page.lang] }}</p>
       <p>
         <span class="bio-title">
@@ -310,14 +306,12 @@
         <span class="enum-title">Java</span> primary language<br>
         <span class="enum-title">Kotlin</span> primary language<br>
         <span class="enum-title">Python </span> secondary language<br>
-        <span class="enum-title">Android</span> SDK, NDK, JNI, Coroutines, RxJava, Room,
-        SQLite, OkHttp, Retrofit, Clean Architecture, MVP, MVI, MVVM, Material,
-        Compose, LeakCanary, Stetho, Profiler, Gradle, Maven,
-        Kotlin Multiplatform, UiAutomator, Espresso, jUnit, Mockito, Robolectric<br>
-        <span class="enum-title">CI/CD</span> build automate, GitHub CI, TravisCI,
-        Gitlab CI, Circle CI, TeamCity, Jenkins, Docker, Artifactory, Maven
-        Central <br>
-        <span class="enum-title">Git</span> git-flow, rebase, cherry-pick, unsquash commits<br>
+        <span class="enum-title">Android</span> Coroutines, RxJava, Room,
+        SQLite, Clean Architecture, MVP/MVI/MVVM, Compose+Material3,
+        Gradle Plugins, Kotlin Multiplatform, UiAutomator, Espresso,
+        jUnit, Mockito, Robolectric<br>
+        <span class="enum-title">CI/CD</span> build automate, GitHub CI,
+        Gitlab CI, TeamCity, Jenkins, Docker, Maven Repository<br>
       </p>
     </div>
 

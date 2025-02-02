@@ -119,7 +119,12 @@ details summary {
   details:not([open]),
   details[open] summary,
   .cv-content .block > .title::before,
-  footer {
+  footer,
+  .education,
+  .achievements,
+  .publications,
+  .talks,
+  .projects {
     display: none;
   }
 
